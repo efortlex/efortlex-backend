@@ -31,6 +31,12 @@ export class ApartmentsController {
     return this.apartmentsService.create(req.user.id, createApartmentDto);
   }
 
+  @Post('many')
+  @UseGuards(AuthGuard, RoleGuard)
+  createMany(@Request() req, @Body() createApartmentDto: CreateApartmentDto[]) {
+    return this.apartmentsService.createMany(req.user.id, createApartmentDto);
+  }
+
   @Get()
   findAll(
     @Query('offset', OptionalParseIntPipe) offset: number = 0,

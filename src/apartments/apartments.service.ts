@@ -91,6 +91,17 @@ export class ApartmentsService {
     }
   }
 
+  async createMany(userId: string, args: CreateApartmentDto[]) {
+    try {
+      for (let i = 0; i < args.length; i++) {
+        await this.create(userId, args[i]);
+      }
+      return { message: 'New apartments created' };
+    } catch (error: any) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
+
   async findAll(args: FindAllArgs) {
     const { offset, limit, ...rest } = args;
 
