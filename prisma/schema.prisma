@@ -1,0 +1,218 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(uuid())
+  email         String       @unique
+  firstName     String
+  lastName      String
+  phoneNumber   String?
+  providers     PROVIDER[]
+  gender        GENDER?
+  role          ROLE[]
+  dateOfBirth   DateTime?
+  address       String?
+  state         String?
+  country       String?
+  landmark      String?
+  password      String?
+  emailVerified Boolean
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  employment    Employment?
+  nextofkin     Nextofkin?
+  apartments    Apartments[]
+
+  @@map("users")
+}
+
+model Employment {
+  id               Int    @id @default(autoincrement())
+  userId           String @unique
+  employmentStatus String
+  employerName     String
+  jobTitle         String
+  address          String
+  monthlyIncome    String
+  user             User   @relation(fields: [userId], references: [id])
+
+  @@map("employments")
+}
+
+model Nextofkin {
+  id          Int    @id @default(autoincrement())
+  userId      String @unique
+  firstName   String
+  lastName    String
+  phoneNumber String
+  address     String
+  email       String
+  user        User   @relation(fields: [userId], references: [id])
+
+  @@map("nextofkins")
+}
+
+model VerificationCode {
+  id        Int                    @id @default(autoincrement())
+  token     String
+  uid       String
+  type      VERIFICATION_CODE_TYPE
+  expiresAt DateTime
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+
+  @@map("verification_codes")
+}
+
+model Apartments {
+  id               String                   @id @default(uuid())
+  name             String
+  images           String[]                 @default([])
+  slug             String                   @unique
+  durationOfRent   DURATION_OF_RENT[]
+  apartmentType    APARTMENT_TYPE
+  rating           Float                    @default(0.0)
+  verified         Boolean                  @default(false)
+  numberOfBedroom  Int
+  numberOfBathroom Int
+  description      String
+  tags             APARTMENT_TAGS[]
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+  pricing          ApartmentPricing?
+  location         Location?
+  bookingOptions   ApartmentBookingOptions?
+  amenities        Amenities?
+  houseRule        HouseRule?
+  User             User?                    @relation(fields: [userId], references: [id])
+  userId           String?
+
+  @@map("apartments")
+}
+
+model ApartmentPricing {
+  id            String           @id @default(uuid())
+  apartmentId   String           @unique
+  duration      DURATION_OF_RENT
+  rent          Float
+  serviceCharge Float
+  cautionFee    Float
+  agreementFee  Float
+  total         Float
+  apartment     Apartments       @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("apartment_pricings")
+}
+
+model Location {
+  id          String     @id @default(uuid())
+  apartmentId String     @unique
+  approximate String
+  precised    String
+  apartment   Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("locations")
+}
+
+model ApartmentBookingOptions {
+  id          String     @id @default(uuid())
+  apartmentId String     @unique
+  installment Boolean    @default(false)
+  selfCheckIn Boolean    @default(false)
+  apartment   Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("apartment_booking_options")
+}
+
+model Amenities {
+  id                String     @id @default(uuid())
+  apartmentId       String     @unique
+  bathtub           Boolean    @default(false)
+  fireSmokeDetector Boolean    @default(false)
+  cctvCamera        Boolean    @default(false)
+  sittingBar        Boolean    @default(false)
+  acUnit            Boolean    @default(false)
+  doorBell          Boolean    @default(false)
+  laundry           Boolean    @default(false)
+  waterHeater       Boolean    @default(false)
+  outdoorGrill      Boolean    @default(false)
+  others            String[]   @default([])
+  apartment         Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("amenities")
+}
+
+model HouseRule {
+  id                 String     @id @default(uuid())
+  apartmentId        String     @unique
+  smoking            Boolean    @default(false)
+  illegalActivities  Boolean    @default(false)
+  gateClose          String
+  inflammables       String
+  landlordPermission String
+  keyLost            String
+  loudMusic          Int
+  nightParties       Boolean    @default(false)
+  apartment          Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("house_rules")
+}
+
+enum PROVIDER {
+  GOOGLE
+  EMAIL
+  APPLE
+}
+
+enum GENDER {
+  MALE
+  FEMALE
+}
+
+enum VERIFICATION_CODE_TYPE {
+  EMAIL
+  PASSWORD
+}
+
+enum ROLE {
+  TENANT
+  ADMIN
+  LANDLORD
+  AGENT
+}
+
+enum DURATION_OF_RENT {
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUATERLY
+  SIX_MONTHS
+  ANNUALLY
+}
+
+enum APARTMENT_TYPE {
+  ONE_BEDROOM
+  SELF_CONTAINED
+  TWO_BEDROOM_OR_MORE
+  DUPLEX
+  BUNGALOW
+  MINI_FLAT
+  PENTHOUSE
+}
+
+enum APARTMENT_TAGS {
+  ROOMS
+  FLATS
+  ESTATE
+  DUPLEX
+  HOSTELS
+}
