@@ -4,7 +4,9 @@ import { User } from './users.type';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { UpdateUserDto } from './dto';
 import { AuthGuard } from '../auth/guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('user')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}

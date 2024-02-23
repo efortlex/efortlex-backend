@@ -89,7 +89,7 @@ export class AuthService {
 
     // then return a success message
     return {
-      message: 'Registration successfull, Email verification code sent',
+      message: 'User successfully registered',
     };
   }
 
@@ -169,7 +169,7 @@ export class AuthService {
 
     // if user does not exists then throw an error
     if (!user)
-      throw new ConflictException(`No user with email: ${email} exists`);
+      throw new NotFoundException(`No user with email: ${email} exists`);
 
     const savedToken = await this.validateToken(
       user.id,
@@ -196,7 +196,7 @@ export class AuthService {
 
     // if user does not exists then throw an error
     if (!user)
-      throw new ConflictException(`No user with email: ${email} exists`);
+      throw new NotFoundException(`No user with email: ${email} exists`);
 
     const code = await this.saveVerificationCode(
       user.id,
@@ -230,7 +230,7 @@ export class AuthService {
 
     // if user does not exists then throw an error
     if (!user)
-      throw new ConflictException(`No user with email: ${email} exists`);
+      throw new NotFoundException(`No user with email: ${email} exists`);
 
     const code = await this.saveVerificationCode(
       user.id,
@@ -324,7 +324,10 @@ export class AuthService {
       data: clean<Partial<UserType>>(args),
     });
 
-    if (!data) throw new BadRequestException();
+    if (!data)
+      throw new BadRequestException(
+        'A server error has occured, please try again',
+      );
     return { message: 'Successfully updated' };
   }
 

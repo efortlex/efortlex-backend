@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { ApartmentsModule } from './apartments/apartments.module';
 import { DatabaseModule } from './database/database.module';
@@ -10,6 +10,7 @@ import * as Joi from 'joi';
 import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
+import { SecretMiddleware } from './middleware';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UsersModule } from './users/users.module';
     ApartmentsModule,
     CacheModule.register({
       isGlobal: true,
+      ttl: 3600000,
     }),
     ConfigModule.forRoot({
       isGlobal: true,
@@ -32,6 +34,8 @@ import { UsersModule } from './users/users.module';
         STMP_EMAIL: Joi.string().required(),
         STMP_PASSWORD: Joi.string().required(),
         ALLOWED_ORIGINS: Joi.string().required(),
+        SERVER_ACCESS_SECRET: Joi.string().required(),
+        SERVER_ACCESS_KEY: Joi.string().required(),
       }),
     }),
     MailerModule.forRootAsync({
@@ -72,4 +76,8 @@ import { UsersModule } from './users/users.module';
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(SecretMiddleware).forRoutes('*');
+  }
+}

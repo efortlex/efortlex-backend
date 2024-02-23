@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsOptional,
   MinLength,
@@ -7,35 +8,67 @@ import {
 } from 'class-validator';
 
 export class UpdateAuthDto {
+  @ApiProperty({
+    description: 'User given name (Optional)',
+    example: 'John',
+  })
   @IsOptional()
   @MinLength(3)
-  firstName: string;
+  firstName?: string;
 
+  @ApiProperty({
+    description: 'User family name (Optional)',
+    example: 'Doe',
+  })
   @IsOptional()
   @MinLength(3)
-  lastName: string;
+  lastName?: string;
 
+  @ApiProperty({
+    description: 'User phone number (Optional)',
+    example: '+23492772288288',
+  })
   @IsOptional()
   @IsPhoneNumber()
-  phoneNumber: string;
+  phoneNumber?: string;
 
+  @ApiProperty({
+    description: 'User date of birth (Optional)',
+    example: '01-21-2003',
+  })
   @IsOptional()
   @IsDateString()
-  dateOfBirth: Date;
+  dateOfBirth?: Date;
 
+  @ApiProperty({
+    description: 'User address (Optional)',
+    example: '82977 Frami Key',
+  })
   @IsOptional()
   @IsString()
-  address: string;
+  address?: string;
 
+  @ApiProperty({
+    description: 'User state (Optional)',
+    example: 'Virginia',
+  })
   @IsOptional()
   @IsString()
-  state: string;
+  state?: string;
 
+  @ApiProperty({
+    description: 'User country (Optional)',
+    example: 'Zambia',
+  })
   @IsOptional()
   @IsString()
-  country: string;
+  country?: string;
 
+  @ApiProperty({
+    description: 'User given name (Optional)',
+    example: 'East',
+  })
   @IsOptional()
   @IsString()
-  landmark: string;
+  landmark?: string;
 }

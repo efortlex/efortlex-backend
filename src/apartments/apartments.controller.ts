@@ -20,7 +20,11 @@ import {
 import { RoleGuard } from './guard';
 import { OptionalParseIntPipe } from '../utils';
 import { AuthGuard } from '../auth/guard';
+import { SkipThrottle } from '@nestjs/throttler';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('apartments')
+@SkipThrottle()
 @Controller('apartments')
 export class ApartmentsController {
   constructor(private readonly apartmentsService: ApartmentsService) {}

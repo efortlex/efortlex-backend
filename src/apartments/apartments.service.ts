@@ -124,7 +124,12 @@ export class ApartmentsService {
       where: where.OR.length > 0 ? where : {},
     });
 
-    return { totalItems, results: apartments };
+    const data = {
+      totalItems,
+      results: apartments,
+    };
+
+    return data;
   }
 
   async findSimilar(apartmentId: string, offset: number, limit: number) {
