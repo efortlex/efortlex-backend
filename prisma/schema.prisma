@@ -11,29 +11,30 @@ datasource db {
 }
 
 model User {
-  id                String             @id @default(uuid())
-  email             String             @unique
-  firstName         String
-  lastName          String
-  photoURL          String?
-  phoneNumber       String?
-  providers         PROVIDER[]
-  gender            GENDER?
-  role              ROLE[]
-  dateOfBirth       DateTime?
-  address           String?
-  state             String?
-  country           String?
-  landmark          String?
-  password          String?
-  emailVerified     Boolean
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
-  employment        Employment?
-  nextofkin         Nextofkin?
-  apartments        Apartments[]
-  ApartmentBookings ApartmentBookings?
-  ApartmentRequests ApartmentRequests?
+  id                  String               @id @default(uuid())
+  email               String               @unique
+  firstName           String
+  lastName            String
+  photoURL            String?
+  phoneNumber         String?
+  providers           PROVIDER[]
+  gender              GENDER?
+  role                ROLE[]
+  dateOfBirth         DateTime?
+  address             String?
+  state               String?
+  country             String?
+  landmark            String?
+  password            String?
+  emailVerified       Boolean
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  employment          Employment?
+  nextofkin           Nextofkin?
+  apartments          Apartments[]
+  ApartmentBookings   ApartmentBookings?
+  ApartmentRequests   ApartmentRequests?
+  MaintenanceRequests MaintenanceRequests?
 
   @@map("users")
 }
@@ -191,9 +192,27 @@ model ApartmentRequests {
   apartmentType APARTMENT_TYPE
   budget        Float
   status        APARTMENT_REQUESTS_STATUS
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
   user          User                      @relation(fields: [userId], references: [id])
 
   @@map("apartment_requests")
+}
+
+model MaintenanceRequests {
+  id            String              @id @default(uuid())
+  userId        String              @unique
+  ticketId      String              @unique
+  description   String
+  urgency       MAINTENANCE_URGENCY
+  status        MAINTENANCE_STATUS
+  attachment    String
+  preferredDate DateTime
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  user          User                @relation(fields: [userId], references: [id])
+
+  @@map("maintenance_requests")
 }
 
 enum PROVIDER {
@@ -257,4 +276,16 @@ enum APARTMENT_REQUESTS_STATUS {
   FOUND
   UNAVAILABLE
   IN_PROGRESS
+}
+
+enum MAINTENANCE_STATUS {
+  RESOLVED
+  CANCELED
+  PENDING
+}
+
+enum MAINTENANCE_URGENCY {
+  HIGH
+  MEDIUM
+  LOW
 }

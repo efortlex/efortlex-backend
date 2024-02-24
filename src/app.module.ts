@@ -13,6 +13,7 @@ import { UsersModule } from './users/users.module';
 import { SecretMiddleware } from './middleware';
 import { BookingsModule } from './bookings/bookings.module';
 import { ApartmentRequestsModule } from './apartment_requests/apartment_requests.module';
+import { MaintenanceRequestsModule } from './maintenance-requests/maintenance-requests.module';
 
 @Module({
   imports: [
@@ -71,6 +72,7 @@ import { ApartmentRequestsModule } from './apartment_requests/apartment_requests
     }),
     UsersModule,
     ApartmentRequestsModule,
+    MaintenanceRequestsModule,
   ],
   controllers: [],
   providers: [
