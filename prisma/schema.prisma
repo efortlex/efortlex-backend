@@ -11,26 +11,28 @@ datasource db {
 }
 
 model User {
-  id            String       @id @default(uuid())
-  email         String       @unique
-  firstName     String
-  lastName      String
-  phoneNumber   String?
-  providers     PROVIDER[]
-  gender        GENDER?
-  role          ROLE[]
-  dateOfBirth   DateTime?
-  address       String?
-  state         String?
-  country       String?
-  landmark      String?
-  password      String?
-  emailVerified Boolean
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
-  employment    Employment?
-  nextofkin     Nextofkin?
-  apartments    Apartments[]
+  id                String             @id @default(uuid())
+  email             String             @unique
+  firstName         String
+  lastName          String
+  photoURL          String?
+  phoneNumber       String?
+  providers         PROVIDER[]
+  gender            GENDER?
+  role              ROLE[]
+  dateOfBirth       DateTime?
+  address           String?
+  state             String?
+  country           String?
+  landmark          String?
+  password          String?
+  emailVerified     Boolean
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  employment        Employment?
+  nextofkin         Nextofkin?
+  apartments        Apartments[]
+  ApartmentBookings ApartmentBookings?
 
   @@map("users")
 }
@@ -74,27 +76,28 @@ model VerificationCode {
 }
 
 model Apartments {
-  id               String                   @id @default(uuid())
-  name             String
-  images           String[]                 @default([])
-  slug             String                   @unique
-  durationOfRent   DURATION_OF_RENT[]
-  apartmentType    APARTMENT_TYPE
-  rating           Float                    @default(0.0)
-  verified         Boolean                  @default(false)
-  numberOfBedroom  Int
-  numberOfBathroom Int
-  description      String
-  tags             APARTMENT_TAGS[]
-  createdAt        DateTime                 @default(now())
-  updatedAt        DateTime                 @updatedAt
-  pricing          ApartmentPricing?
-  location         Location?
-  bookingOptions   ApartmentBookingOptions?
-  amenities        Amenities?
-  houseRule        HouseRule?
-  User             User?                    @relation(fields: [userId], references: [id])
-  userId           String?
+  id                String                   @id @default(uuid())
+  name              String
+  images            String[]                 @default([])
+  slug              String                   @unique
+  durationOfRent    DURATION_OF_RENT[]
+  apartmentType     APARTMENT_TYPE
+  rating            Float                    @default(0.0)
+  verified          Boolean                  @default(false)
+  numberOfBedroom   Int
+  numberOfBathroom  Int
+  description       String
+  tags              APARTMENT_TAGS[]
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+  pricing           ApartmentPricing?
+  location          Location?
+  bookingOptions    ApartmentBookingOptions?
+  amenities         Amenities?
+  houseRule         HouseRule?
+  User              User?                    @relation(fields: [userId], references: [id])
+  userId            String?
+  ApartmentBookings ApartmentBookings?
 
   @@map("apartments")
 }
@@ -167,6 +170,19 @@ model HouseRule {
   @@map("house_rules")
 }
 
+model ApartmentBookings {
+  id          String                    @id @default(uuid())
+  apartmentId String                    @unique
+  userId      String                    @unique
+  status      APARTMENT_BOOKINGS_STATUS
+  createdAt   DateTime                  @default(now())
+  updatedAt   DateTime                  @updatedAt
+  user        User                      @relation(fields: [userId], references: [id])
+  apartment   Apartments                @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("apartment_bookings")
+}
+
 enum PROVIDER {
   GOOGLE
   EMAIL
@@ -215,4 +231,11 @@ enum APARTMENT_TAGS {
   ESTATE
   DUPLEX
   HOSTELS
+}
+
+enum APARTMENT_BOOKINGS_STATUS {
+  BOOKED
+  UNAVAILABLE
+  PENDING
+  SCHEDULED
 }

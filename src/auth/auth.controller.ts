@@ -160,7 +160,6 @@ export class AuthController {
   }
 
   @ApiOkResponse({
-    description: 'Successfully updated',
     content: OkResponseData({
       message: {
         type: 'string',

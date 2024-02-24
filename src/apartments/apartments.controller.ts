@@ -21,7 +21,8 @@ import { RoleGuard } from './guard';
 import { OptionalParseIntPipe } from '../utils';
 import { AuthGuard } from '../auth/guard';
 import { SkipThrottle } from '@nestjs/throttler';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { OkResponseData } from '../common/ok-response-data';
 
 @ApiTags('apartments')
 @SkipThrottle()
@@ -29,6 +30,14 @@ import { ApiTags } from '@nestjs/swagger';
 export class ApartmentsController {
   constructor(private readonly apartmentsService: ApartmentsService) {}
 
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'New apartment created',
+      },
+    }),
+  })
   @Post()
   @UseGuards(AuthGuard, RoleGuard)
   create(@Request() req, @Body() createApartmentDto: CreateApartmentDto) {
