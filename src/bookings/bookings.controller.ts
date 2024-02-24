@@ -9,16 +9,16 @@ import {
   Body,
 } from '@nestjs/common';
 import { BookingsService } from './bookings.service';
-import { AuthGuard } from '../../auth/guard';
+import { AuthGuard } from '../auth/guard';
 import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import {
   ApartmentBookingDto,
   ApartmentBookingsDto,
 } from './dto/apartment-bookings.dto';
-import { OkResponseData } from '../../common/ok-response-data';
-import { User } from '../../users/users.type';
-import { CurrentUser } from '../../auth/current-user.decorator';
-import { OptionalParseIntPipe } from '../../utils';
+import { OkResponseData } from '../common/ok-response-data';
+import { User } from '../users/users.type';
+import { CurrentUser } from '../auth/current-user.decorator';
+import { OptionalParseIntPipe } from '../utils';
 import { CreateBookingDto } from './dto';
 
 @ApiHeader({
@@ -27,7 +27,7 @@ import { CreateBookingDto } from './dto';
   example: 'Bearer .....',
 })
 @ApiTags('Bookings')
-@Controller('bookings')
+@Controller('apartments/bookings')
 export class BookingsController {
   constructor(private readonly bookingsService: BookingsService) {}
 
