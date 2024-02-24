@@ -2,50 +2,52 @@ import {
   Controller,
   Get,
   Post,
+  Body,
   Param,
   Delete,
   UseGuards,
   Query,
-  Body,
 } from '@nestjs/common';
-import { BookingsService } from './bookings.service';
-import { AuthGuard } from '../auth/guard';
+import { ApartmentRequestsService } from './apartment_requests.service';
+import { CreateApartmentRequestDto } from './dto';
 import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import {
-  ApartmentBookingDto,
-  ApartmentBookingsDto,
-} from './dto/apartment-bookings.dto';
 import { OkResponseData } from '../common/ok-response-data';
+import {
+  ApartmentRequestDto,
+  ApartmentRequestsDto,
+} from './dto/apartment_requests.dto';
+import { AuthGuard } from '../auth/guard';
+import { OptionalParseIntPipe } from '../utils';
 import { User } from '../users/users.type';
 import { CurrentUser } from '../auth/current-user.decorator';
-import { OptionalParseIntPipe } from '../utils';
-import { CreateBookingDto } from './dto';
 
+@ApiTags('Apartment request')
 @ApiHeader({
   name: 'x-access-token',
   required: true,
   example: 'Bearer .....',
 })
-@ApiTags('Bookings')
-@Controller('bookings')
-export class BookingsController {
-  constructor(private readonly bookingsService: BookingsService) {}
+@Controller('apartment_requests')
+export class ApartmentRequestsController {
+  constructor(
+    private readonly apartmentRequestsService: ApartmentRequestsService,
+  ) {}
 
   @ApiOkResponse({
     content: OkResponseData({
       message: {
         type: 'string',
-        example: 'Booking created',
+        example: 'Apartment request created',
       },
     }),
   })
   @Post()
   @UseGuards(AuthGuard)
-  create(@CurrentUser() user: User, @Body() args: CreateBookingDto) {
-    return this.bookingsService.create(user.id, args.apartmentId);
+  create(@CurrentUser() user: User, @Body() args: CreateApartmentRequestDto) {
+    return this.apartmentRequestsService.create(user.id, args);
   }
 
-  @ApiOkResponse({ type: ApartmentBookingsDto })
+  @ApiOkResponse({ type: ApartmentRequestsDto })
   @Get()
   @UseGuards(AuthGuard)
   findAll(
@@ -53,26 +55,26 @@ export class BookingsController {
     @Query('limit', OptionalParseIntPipe) limit: number = 10,
     @CurrentUser() user: User,
   ) {
-    return this.bookingsService.findAll(user.id, offset, limit);
+    return this.apartmentRequestsService.findAll(user.id, offset, limit);
   }
 
-  @ApiOkResponse({ type: ApartmentBookingDto || null })
+  @ApiOkResponse({ type: ApartmentRequestDto || null })
   @Get(':id')
   @UseGuards(AuthGuard)
   findOne(@CurrentUser() user: User, @Param('id') id: string) {
-    return this.bookingsService.findOne(user.id, id);
+    return this.apartmentRequestsService.findOne(user.id, id);
   }
 
   @ApiOkResponse({
     content: OkResponseData({
       message: {
         type: 'string',
-        example: 'Apartment Booking with id #${id} deleted successfully',
+        example: 'Apartment Request with id #${id} deleted successfully',
       },
     }),
   })
   @Delete(':id')
   remove(@CurrentUser() user: User, @Param('id') id: string) {
-    return this.bookingsService.remove(user.id, id);
+    return this.apartmentRequestsService.remove(user.id, id);
   }
 }

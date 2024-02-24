@@ -33,6 +33,7 @@ model User {
   nextofkin         Nextofkin?
   apartments        Apartments[]
   ApartmentBookings ApartmentBookings?
+  ApartmentRequests ApartmentRequests?
 
   @@map("users")
 }
@@ -183,6 +184,18 @@ model ApartmentBookings {
   @@map("apartment_bookings")
 }
 
+model ApartmentRequests {
+  id            String                    @id @default(uuid())
+  userId        String                    @unique
+  location      String
+  apartmentType APARTMENT_TYPE
+  budget        Float
+  status        APARTMENT_REQUESTS_STATUS
+  user          User                      @relation(fields: [userId], references: [id])
+
+  @@map("apartment_requests")
+}
+
 enum PROVIDER {
   GOOGLE
   EMAIL
@@ -238,4 +251,10 @@ enum APARTMENT_BOOKINGS_STATUS {
   UNAVAILABLE
   PENDING
   SCHEDULED
+}
+
+enum APARTMENT_REQUESTS_STATUS {
+  FOUND
+  UNAVAILABLE
+  IN_PROGRESS
 }

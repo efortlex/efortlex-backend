@@ -1,21 +1,24 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { DatabaseService } from '../../database/database.service';
+import { CreateApartmentRequestDto } from './dto';
+import { DatabaseService } from '../database/database.service';
 
 @Injectable()
-export class BookingsService {
+export class ApartmentRequestsService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async create(userId: string, apartmentId: string) {
+  async create(userId: string, args: CreateApartmentRequestDto) {
     try {
-      await this.databaseService.apartmentBookings.create({
+      await this.databaseService.apartmentRequests.create({
         data: {
-          apartmentId,
-          status: 'PENDING',
+          apartmentType: args.apartmentType,
+          budget: args.budget,
+          location: args.location,
+          status: 'IN_PROGRESS',
           userId,
         },
       });
 
-      return { message: 'Booking created' };
+      return { message: 'Apartment request created' };
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
     }
@@ -24,12 +27,8 @@ export class BookingsService {
   async findAll(userId: string, offset: number, limit: number) {
     try {
       const apartmentBookings =
-        await this.databaseService.apartmentBookings.findMany({
+        await this.databaseService.apartmentRequests.findMany({
           where: { userId },
-          include: {
-            apartment: true,
-            user: true,
-          },
           skip: offset,
           take: limit,
         });
@@ -46,12 +45,8 @@ export class BookingsService {
   async findOne(userId: string, id: string) {
     try {
       const apartmentBookings =
-        await this.databaseService.apartmentBookings.findUnique({
+        await this.databaseService.apartmentRequests.findUnique({
           where: { id, userId },
-          include: {
-            apartment: true,
-            user: true,
-          },
         });
 
       return apartmentBookings;
@@ -62,12 +57,12 @@ export class BookingsService {
 
   async remove(userId: string, id: string) {
     try {
-      await this.databaseService.apartmentBookings.delete({
+      await this.databaseService.apartmentRequests.delete({
         where: { id, userId },
       });
 
       return {
-        message: `Apartment Booking with id #${id} deleted successfully`,
+        message: `Apartment Request with id #${id} deleted successfully`,
       };
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);

@@ -11,12 +11,15 @@ import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
 import { SecretMiddleware } from './middleware';
+import { BookingsModule } from './bookings/bookings.module';
+import { ApartmentRequestsModule } from './apartment_requests/apartment_requests.module';
 
 @Module({
   imports: [
     DatabaseModule,
     AuthModule,
     ApartmentsModule,
+    BookingsModule,
     CacheModule.register({
       isGlobal: true,
       ttl: 3600000,
@@ -67,6 +70,7 @@ import { SecretMiddleware } from './middleware';
       inject: [ConfigService],
     }),
     UsersModule,
+    ApartmentRequestsModule,
   ],
   controllers: [],
   providers: [

@@ -24,7 +24,7 @@ import { SkipThrottle } from '@nestjs/throttler';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { OkResponseData } from '../common/ok-response-data';
 
-@ApiTags('apartments')
+@ApiTags('Apartments')
 @SkipThrottle()
 @Controller('apartments')
 export class ApartmentsController {

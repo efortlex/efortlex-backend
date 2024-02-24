@@ -34,7 +34,7 @@ import {
 import { MessageType } from './types';
 import { OkResponseData } from '../common/ok-response-data';
 
-@ApiTags('auth')
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}

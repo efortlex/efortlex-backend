@@ -13,7 +13,7 @@ import { OkResponseData } from '../common/ok-response-data';
   required: true,
   example: 'Bearer .....',
 })
-@ApiTags('users')
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
