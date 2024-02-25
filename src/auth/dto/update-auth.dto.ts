@@ -5,6 +5,7 @@ import {
   IsPhoneNumber,
   IsDateString,
   IsString,
+  IsUrl,
 } from 'class-validator';
 
 export class UpdateAuthDto {
@@ -31,6 +32,14 @@ export class UpdateAuthDto {
   @IsOptional()
   @IsPhoneNumber()
   phoneNumber?: string;
+
+  @ApiProperty({
+    description: 'User photoURL (Optional)',
+    example: 'http://micazi.tn/mi',
+  })
+  @IsOptional()
+  @IsUrl()
+  photoURL?: string;
 
   @ApiProperty({
     description: 'User date of birth (Optional)',

@@ -54,14 +54,15 @@ model Employment {
 }
 
 model Nextofkin {
-  id          Int    @id @default(autoincrement())
-  userId      String @unique
-  firstName   String
-  lastName    String
-  phoneNumber String
-  address     String
-  email       String
-  user        User   @relation(fields: [userId], references: [id])
+  id           Int    @id @default(autoincrement())
+  userId       String @unique
+  firstName    String
+  lastName     String
+  phoneNumber  String
+  address      String
+  email        String
+  relationship String
+  user         User   @relation(fields: [userId], references: [id])
 
   @@map("nextofkins")
 }

@@ -39,6 +39,7 @@
     "cache-manager-redis-store": "^3.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "fs": "^0.0.1-security",
     "joi": "^17.12.1",
     "nodemailer": "^6.9.9",
     "pug": "^3.0.2",
