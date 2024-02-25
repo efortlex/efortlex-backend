@@ -46,6 +46,8 @@ export class RefreshAuthGuard implements CanActivate {
           state: true,
           employment: true,
           nextofkin: true,
+          notification: true,
+          photoURL: true,
           createdAt: true,
           updatedAt: true,
         },

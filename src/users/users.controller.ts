@@ -2,7 +2,12 @@ import { Body, Controller, Get, Put, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './users.type';
 import { CurrentUser } from '../auth/current-user.decorator';
-import { NextofkinDto, UpdateEmploymentDto, UpdateUserDto } from './dto';
+import {
+  NextofkinDto,
+  UpdateEmploymentDto,
+  UpdateNotificationDto,
+  UpdateUserDto,
+} from './dto';
 import { AuthGuard } from '../auth/guard';
 import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { UserDto } from './dto/user.dto';
@@ -39,8 +44,6 @@ export class UsersController {
     return this.usersService.update(user, args);
   }
 
-  // TODO: update employment
-
   @ApiOkResponse({
     content: OkResponseData({
       message: {
@@ -58,7 +61,6 @@ export class UsersController {
     return this.usersService.updateEmployment(user, args);
   }
 
-  // TODO: update nextofkind
   @ApiOkResponse({
     content: OkResponseData({
       message: {
@@ -71,5 +73,22 @@ export class UsersController {
   @Put('/update-next-of-kin')
   updateNextOfKin(@CurrentUser() user: User, @Body() args: NextofkinDto) {
     return this.usersService.updateNextOfKin(user, args);
+  }
+
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'User notification updated successfully',
+      },
+    }),
+  })
+  @UseGuards(AuthGuard)
+  @Put('/update-notification')
+  updateNotification(
+    @CurrentUser() user: User,
+    @Body() args: UpdateNotificationDto,
+  ) {
+    return this.usersService.updateNotification(user, args);
   }
 }
