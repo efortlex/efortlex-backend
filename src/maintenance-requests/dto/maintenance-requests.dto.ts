@@ -20,8 +20,8 @@ export class MaintenanceRequestDto {
   @ApiProperty({ example: 'RESOLVED' })
   status: MAINTENANCE_STATUS;
 
-  @ApiProperty({ example: 'http://tamenkil.kz/lozoluje' })
-  attachment: number;
+  @ApiProperty({ example: ['http://tamenkil.kz/lozoluje'] })
+  attachments: string[];
 
   @ApiProperty({
     example: 'Sun May 21 2023 16:43:01 GMT+0100 (West Africa Standard Time)',

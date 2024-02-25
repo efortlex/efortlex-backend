@@ -7,13 +7,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
 import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
 import * as Joi from 'joi';
-import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
-import { APP_INTERCEPTOR } from '@nestjs/core';
+import { CacheModule } from '@nestjs/cache-manager';
+// import { APP_INTERCEPTOR } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
 import { SecretMiddleware } from './middleware';
 import { BookingsModule } from './bookings/bookings.module';
 import { ApartmentRequestsModule } from './apartment_requests/apartment_requests.module';
 import { MaintenanceRequestsModule } from './maintenance-requests/maintenance-requests.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -40,6 +41,9 @@ import { MaintenanceRequestsModule } from './maintenance-requests/maintenance-re
         ALLOWED_ORIGINS: Joi.string().required(),
         SERVER_ACCESS_SECRET: Joi.string().required(),
         SERVER_ACCESS_KEY: Joi.string().required(),
+        STORAGE_BUCKET_NAME: Joi.string().required(),
+        STORAGE_PROJECT_ID: Joi.string().required(),
+        GOOGLE_CLOUD_CREDENTIALS: Joi.string().required(),
       }),
     }),
     MailerModule.forRootAsync({
@@ -73,13 +77,14 @@ import { MaintenanceRequestsModule } from './maintenance-requests/maintenance-re
     UsersModule,
     ApartmentRequestsModule,
     MaintenanceRequestsModule,
+    UploadModule,
   ],
   controllers: [],
   providers: [
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
-    },
+    // {
+    //   provide: APP_INTERCEPTOR,
+    //   useClass: CacheInterceptor,
+    // },
   ],
 })
 export class AppModule implements NestModule {

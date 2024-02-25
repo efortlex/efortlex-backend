@@ -15,7 +15,7 @@ export class MaintenanceRequestsService {
           preferredDate: args.preferredDate,
           urgency: args.urgency,
           ticketId: nanoid(6),
-          attachment: args.attachment,
+          attachments: args.attachments,
           status: 'PENDING',
           userId,
         },
