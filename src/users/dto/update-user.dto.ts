@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { GENDER } from '@prisma/client';
+import { GENDER, TWO_FACTOR_AUTHENTICATION } from '@prisma/client';
 import {
   IsDateString,
   IsEnum,
@@ -57,4 +57,9 @@ export class UpdateUserDto {
   @IsOptional()
   @IsString()
   landmark?: string;
+
+  @ApiProperty({ example: 'South', required: false, nullable: true })
+  @IsOptional()
+  @IsEnum(TWO_FACTOR_AUTHENTICATION)
+  twoFactorAuthentication?: TWO_FACTOR_AUTHENTICATION;
 }

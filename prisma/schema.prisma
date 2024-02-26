@@ -11,32 +11,34 @@ datasource db {
 }
 
 model User {
-  id                    String               @id @default(uuid())
-  email                 String               @unique
-  firstName             String
-  lastName              String
-  photoURL              String?
-  phoneNumber           String?
-  providers             PROVIDER[]
-  gender                GENDER?
-  role                  ROLE[]
-  dateOfBirth           DateTime?
-  address               String?
-  state                 String?
-  country               String?
-  landmark              String?
-  password              String?
-  emailVerified         Boolean
-  createdAt             DateTime             @default(now())
-  updatedAt             DateTime             @updatedAt
-  employment            Employment?
-  nextofkin             Nextofkin?
-  notification          Notification?
-  apartments            Apartments[]
-  ApartmentBookings     ApartmentBookings?
-  ApartmentRequests     ApartmentRequests?
-  MaintenanceRequests   MaintenanceRequests? @relation(fields: [maintenanceRequestsId], references: [id])
-  maintenanceRequestsId String?
+  id                      String                     @id @default(uuid())
+  email                   String                     @unique
+  firstName               String
+  lastName                String
+  photoURL                String?
+  phoneNumber             String?
+  providers               PROVIDER[]
+  gender                  GENDER?
+  role                    ROLE[]
+  dateOfBirth             DateTime?
+  address                 String?
+  state                   String?
+  country                 String?
+  landmark                String?
+  twoFactorAuthentication TWO_FACTOR_AUTHENTICATION?
+  password                String?
+  emailVerified           Boolean
+  createdAt               DateTime                   @default(now())
+  updatedAt               DateTime                   @updatedAt
+  employment              Employment?
+  nextofkin               Nextofkin?
+  notification            Notification?
+  document                Document?
+  apartments              Apartments[]
+  ApartmentBookings       ApartmentBookings?
+  ApartmentRequests       ApartmentRequests?
+  MaintenanceRequests     MaintenanceRequests?       @relation(fields: [maintenanceRequestsId], references: [id])
+  maintenanceRequestsId   String?
 
   @@map("users")
 }
@@ -77,6 +79,18 @@ model Notification {
   user               User                @relation(fields: [userId], references: [id])
 
   @@map("notifications")
+}
+
+model Document {
+  id             Int     @id @default(autoincrement())
+  userId         String  @unique
+  type           String
+  documentNumber String?
+  frontUrl       String
+  backUrl        String
+  user           User    @relation(fields: [userId], references: [id])
+
+  @@map("documents")
 }
 
 model VerificationCode {
@@ -307,4 +321,9 @@ enum MAINTENANCE_URGENCY {
 enum NOTIFICATION_ENUM {
   EMAIL
   PUSH
+}
+
+enum TWO_FACTOR_AUTHENTICATION {
+  SMS
+  EMAIL
 }

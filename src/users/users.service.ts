@@ -2,6 +2,7 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { User } from './users.type';
 import {
   NextofkinDto,
+  UpdateDocumentDto,
   UpdateEmploymentDto,
   UpdateNotificationDto,
   UpdateUserDto,
@@ -12,6 +13,41 @@ import { clean } from '../common/clean';
 @Injectable()
 export class UsersService {
   constructor(private readonly databaseService: DatabaseService) {}
+
+  async getOverview(user: User) {
+    const userId = user.id;
+    const bookedApartment = await this.databaseService.apartmentBookings.count({
+      where: { userId, status: 'BOOKED' },
+    });
+    const scheduledApartment =
+      await this.databaseService.apartmentBookings.count({
+        where: { userId, status: 'SCHEDULED' },
+      });
+    const maintainanceRequest =
+      await this.databaseService.maintenanceRequests.count({
+        where: { userId },
+      });
+
+    const apartments = await this.databaseService.apartmentRequests.findMany({
+      where: { userId },
+    });
+
+    return {
+      bookedApartment,
+      scheduledApartment,
+      maintainanceRequest,
+      apartmentRequest: {
+        found: apartments.filter((apartment) => apartment.status === 'FOUND')
+          .length,
+        inProgress: apartments.filter(
+          (apartment) => apartment.status === 'IN_PROGRESS',
+        ).length,
+        unavailable: apartments.filter(
+          (apartment) => apartment.status === 'UNAVAILABLE',
+        ).length,
+      },
+    };
+  }
 
   async update(user: User, args: UpdateUserDto) {
     try {
@@ -64,6 +100,28 @@ export class UsersService {
         });
       }
       return { message: 'User Next of kin updated successfully' };
+    } catch (error) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
+
+  async updateDocument(user: User, args: UpdateDocumentDto) {
+    try {
+      const userId = user.id;
+      const document = user.document;
+
+      if (document) {
+        await this.databaseService.document.update({
+          where: { userId },
+          data: clean(args),
+        });
+      } else {
+        await this.databaseService.document.create({
+          data: { userId, ...clean(args) },
+        });
+      }
+
+      return { message: 'User document updated successfully' };
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }

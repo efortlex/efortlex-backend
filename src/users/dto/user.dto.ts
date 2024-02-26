@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 class Employment {
   @ApiProperty({ example: '2bb98aa0-319c-58bf-a648-d6f53d196708' })
-  id: number;
+  id: string;
 
   @ApiProperty({ example: '285ddf17-7a09-51da-b756-c24d2e7f573c' })
   userId: string;
@@ -25,7 +25,7 @@ class Employment {
 
 class Nextofkin {
   @ApiProperty({ example: '777471c2-e011-57a1-884b-0d21c2dfdb3e' })
-  id: number;
+  id: string;
 
   @ApiProperty({ example: '06aeb252-aa23-591c-adc7-55701f1c694c' })
   userId: string;

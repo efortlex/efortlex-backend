@@ -49,6 +49,8 @@ export class AuthGuard implements CanActivate {
           nextofkin: true,
           notification: true,
           photoURL: true,
+          document: true,
+          twoFactorAuthentication: true,
           createdAt: true,
           updatedAt: true,
         },

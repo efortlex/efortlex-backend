@@ -4,6 +4,7 @@ import { User } from './users.type';
 import { CurrentUser } from '../auth/current-user.decorator';
 import {
   NextofkinDto,
+  UpdateDocumentDto,
   UpdateEmploymentDto,
   UpdateNotificationDto,
   UpdateUserDto,
@@ -12,6 +13,7 @@ import { AuthGuard } from '../auth/guard';
 import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { UserDto } from './dto/user.dto';
 import { OkResponseData } from '../common/ok-response-data';
+import { OverviewDto } from './dto/overview.dto';
 
 @ApiHeader({
   name: 'x-access-token',
@@ -28,6 +30,13 @@ export class UsersController {
   @Get()
   find(@CurrentUser() user: User) {
     return user;
+  }
+
+  @ApiOkResponse({ type: OverviewDto })
+  @UseGuards(AuthGuard)
+  @Get('/overview')
+  getOverview(@CurrentUser() user: User) {
+    return this.usersService.getOverview(user);
   }
 
   @ApiOkResponse({
@@ -80,6 +89,20 @@ export class UsersController {
       message: {
         type: 'string',
         example: 'User notification updated successfully',
+      },
+    }),
+  })
+  @UseGuards(AuthGuard)
+  @Put('/update-document')
+  updateDocument(@CurrentUser() user: User, @Body() args: UpdateDocumentDto) {
+    return this.usersService.updateDocument(user, args);
+  }
+
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'User document updated successfully',
       },
     }),
   })
