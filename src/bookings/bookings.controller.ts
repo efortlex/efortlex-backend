@@ -42,7 +42,7 @@ export class BookingsController {
   @Post()
   @UseGuards(AuthGuard)
   create(@CurrentUser() user: User, @Body() args: CreateBookingDto) {
-    return this.bookingsService.create(user.id, args.apartmentId);
+    return this.bookingsService.create(user.id, args);
   }
 
   @ApiOkResponse({ type: ApartmentBookingsDto })

@@ -1,16 +1,18 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
+import { CreateBookingDto } from './dto';
 
 @Injectable()
 export class BookingsService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async create(userId: string, apartmentId: string) {
+  async create(userId: string, args: CreateBookingDto) {
     try {
       await this.databaseService.apartmentBookings.create({
         data: {
-          apartmentId,
-          status: 'PENDING',
+          apartmentId: args.apartmentId,
+          status: args.isScheduled ? 'SCHEDULED' : 'PENDING',
+          inspectionDate: args.inspectionDate,
           userId,
         },
       });

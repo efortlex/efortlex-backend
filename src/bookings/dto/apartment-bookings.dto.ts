@@ -14,6 +14,11 @@ export class ApartmentBookingDto {
   @ApiProperty({ example: 'UNAVAILABLE' })
   status: 'BOOKED' | 'UNAVAILABLE' | 'PENDING' | 'SCHEDULED';
 
+  @ApiProperty({
+    example: 'Sun Jun 11 2023 04:22:19 GMT+0100 (West Africa Standard Time)',
+  })
+  inspectionDate: Date;
+
   @ApiProperty({ type: OmitType(UserDto, ['employment', 'nextofkin']) })
   user: UserDto;
 
