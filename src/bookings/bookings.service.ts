@@ -29,8 +29,11 @@ export class BookingsService {
         await this.databaseService.apartmentBookings.findMany({
           where: { userId },
           include: {
-            apartment: true,
-            user: true,
+            apartment: {
+              include: {
+                pricing: true,
+              },
+            },
           },
           skip: offset,
           take: limit,
@@ -51,8 +54,11 @@ export class BookingsService {
         await this.databaseService.apartmentBookings.findUnique({
           where: { id, userId },
           include: {
-            apartment: true,
-            user: true,
+            apartment: {
+              include: {
+                pricing: true,
+              },
+            },
           },
         });
 

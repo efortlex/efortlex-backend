@@ -35,10 +35,11 @@ model User {
   notification            Notification?
   document                Document?
   apartments              Apartments[]
-  ApartmentBookings       ApartmentBookings?
+  apartmentBookings       ApartmentBookings[]
   ApartmentRequests       ApartmentRequests?
   MaintenanceRequests     MaintenanceRequests?       @relation(fields: [maintenanceRequestsId], references: [id])
   maintenanceRequestsId   String?
+  apartmentBookingsId     String?
 
   @@map("users")
 }
@@ -106,28 +107,29 @@ model VerificationCode {
 }
 
 model Apartments {
-  id                String                   @id @default(uuid())
-  name              String
-  images            String[]                 @default([])
-  slug              String                   @unique
-  durationOfRent    DURATION_OF_RENT[]
-  apartmentType     APARTMENT_TYPE
-  rating            Float                    @default(0.0)
-  verified          Boolean                  @default(false)
-  numberOfBedroom   Int
-  numberOfBathroom  Int
-  description       String
-  tags              APARTMENT_TAGS[]
-  createdAt         DateTime                 @default(now())
-  updatedAt         DateTime                 @updatedAt
-  pricing           ApartmentPricing?
-  location          Location?
-  bookingOptions    ApartmentBookingOptions?
-  amenities         Amenities?
-  houseRule         HouseRule?
-  User              User?                    @relation(fields: [userId], references: [id])
-  userId            String?
-  ApartmentBookings ApartmentBookings?
+  id                  String                   @id @default(uuid())
+  name                String
+  images              String[]                 @default([])
+  slug                String                   @unique
+  durationOfRent      DURATION_OF_RENT[]
+  apartmentType       APARTMENT_TYPE
+  rating              Float                    @default(0.0)
+  verified            Boolean                  @default(false)
+  numberOfBedroom     Int
+  numberOfBathroom    Int
+  description         String
+  tags                APARTMENT_TAGS[]
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+  pricing             ApartmentPricing?
+  location            Location?
+  bookingOptions      ApartmentBookingOptions?
+  amenities           Amenities?
+  houseRule           HouseRule?
+  User                User?                    @relation(fields: [userId], references: [id])
+  userId              String?
+  apartmentBookings   ApartmentBookings[]
+  apartmentBookingsId String?
 
   @@map("apartments")
 }
@@ -202,14 +204,14 @@ model HouseRule {
 
 model ApartmentBookings {
   id             String                    @id @default(uuid())
-  apartmentId    String                    @unique
-  userId         String                    @unique
+  apartmentId    String
+  userId         String
   status         APARTMENT_BOOKINGS_STATUS
   inspectionDate DateTime
   createdAt      DateTime                  @default(now())
   updatedAt      DateTime                  @updatedAt
   user           User                      @relation(fields: [userId], references: [id])
-  apartment      Apartments                @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+  apartment      Apartments                @relation(fields: [apartmentId], references: [id])
 
   @@map("apartment_bookings")
 }

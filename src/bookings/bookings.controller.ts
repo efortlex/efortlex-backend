@@ -72,7 +72,9 @@ export class BookingsController {
     }),
   })
   @Delete(':id')
+  @UseGuards(AuthGuard)
   remove(@CurrentUser() user: User, @Param('id') id: string) {
+    console.log({ user, id });
     return this.bookingsService.remove(user.id, id);
   }
 }

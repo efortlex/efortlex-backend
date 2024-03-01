@@ -1,5 +1,5 @@
-import { ApiProperty, OmitType } from '@nestjs/swagger';
-import { UserDto } from '../../users/dto/user.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { ApartmentDto } from '../../apartments/dto/apartment.dto';
 
 export class ApartmentBookingDto {
   @ApiProperty({ example: '161797b4-8e6a-5dbf-849a-138638b534d2' })
@@ -19,8 +19,8 @@ export class ApartmentBookingDto {
   })
   inspectionDate: Date;
 
-  @ApiProperty({ type: OmitType(UserDto, ['employment', 'nextofkin']) })
-  user: UserDto;
+  @ApiProperty({ type: ApartmentDto })
+  aparyment: ApartmentDto;
 
   @ApiProperty({
     example: 'Thu Jun 22 2023 21:56:11 GMT+0100 (West Africa Standard Time)',
