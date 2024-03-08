@@ -11,18 +11,19 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
+import { ApiBody, ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { SkipThrottle } from '@nestjs/throttler';
+import { AuthGuard } from '../auth/guard';
+import { OkResponseData } from '../common/ok-response-data';
+import { OptionalParseIntPipe } from '../utils';
 import { ApartmentsService } from './apartments.service';
 import {
   CreateApartmentDto,
   FindApartmentsByIdsDto,
   UpdateApartmentDto,
 } from './dto';
+import { ApartmentDto, ApartmentsDto } from './dto/apartment.dto';
 import { RoleGuard } from './guard';
-import { OptionalParseIntPipe } from '../utils';
-import { AuthGuard } from '../auth/guard';
-import { SkipThrottle } from '@nestjs/throttler';
-import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { OkResponseData } from '../common/ok-response-data';
 
 @ApiTags('Apartments')
 @SkipThrottle()
@@ -38,18 +39,40 @@ export class ApartmentsController {
       },
     }),
   })
+  @ApiHeader({
+    name: 'x-access-token',
+    required: true,
+    example: 'Bearer .....',
+  })
   @Post()
   @UseGuards(AuthGuard, RoleGuard)
   create(@Request() req, @Body() createApartmentDto: CreateApartmentDto) {
     return this.apartmentsService.create(req.user.id, createApartmentDto);
   }
 
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'Apartments created',
+      },
+    }),
+  })
+  @ApiBody({
+    type: [CreateApartmentDto],
+  })
+  @ApiHeader({
+    name: 'x-access-token',
+    required: true,
+    example: 'Bearer .....',
+  })
   @Post('many')
   @UseGuards(AuthGuard, RoleGuard)
   createMany(@Request() req, @Body() createApartmentDto: CreateApartmentDto[]) {
     return this.apartmentsService.createMany(req.user.id, createApartmentDto);
   }
 
+  @ApiOkResponse({ type: ApartmentsDto })
   @Get()
   findAll(
     @Query('offset', OptionalParseIntPipe) offset: number = 0,
@@ -77,6 +100,7 @@ export class ApartmentsController {
     });
   }
 
+  @ApiOkResponse({ type: ApartmentsDto })
   @Get('similar/:apartmentId')
   findSimilar(
     @Param('apartmentId', ParseUUIDPipe) apartmentId: string,
@@ -86,6 +110,7 @@ export class ApartmentsController {
     return this.apartmentsService.findSimilar(apartmentId, offset, limit);
   }
 
+  @ApiOkResponse({ type: ApartmentsDto })
   @Get('search/:search')
   findSearch(
     @Param('search') search: string,
@@ -114,6 +139,7 @@ export class ApartmentsController {
     });
   }
 
+  @ApiOkResponse({ type: ApartmentsDto })
   @Get('ids')
   findApartmentsByIds(
     @Query('offset', OptionalParseIntPipe) offset: number = 0,
@@ -127,16 +153,31 @@ export class ApartmentsController {
     });
   }
 
+  @ApiOkResponse({ type: ApartmentDto })
   @Get('/by-slug/:slug')
   findOneBySlug(@Param('slug') slug: string) {
     return this.apartmentsService.findOneBySlug(slug);
   }
 
+  @ApiOkResponse({ type: ApartmentDto })
   @Get(':apartmentId')
   findOneById(@Param('apartmentId') apartmentId: string) {
     return this.apartmentsService.findOneById(apartmentId);
   }
 
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'Apartment updated successfully',
+      },
+    }),
+  })
+  @ApiHeader({
+    name: 'x-access-token',
+    required: true,
+    example: 'Bearer .....',
+  })
   @Put(':apartmentId')
   @UseGuards(AuthGuard, RoleGuard)
   update(
@@ -146,6 +187,19 @@ export class ApartmentsController {
     return this.apartmentsService.update(apartmentId, updateApartmentDto);
   }
 
+  @ApiOkResponse({
+    content: OkResponseData({
+      message: {
+        type: 'string',
+        example: 'Apartment with id #${apartmentId} deleted successfully',
+      },
+    }),
+  })
+  @ApiHeader({
+    name: 'x-access-token',
+    required: true,
+    example: 'Bearer .....',
+  })
   @UseGuards(AuthGuard, RoleGuard)
   @Delete(':apartmentId')
   delete(@Param('apartmentId', ParseUUIDPipe) apartmentId: string) {

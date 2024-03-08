@@ -1,10 +1,12 @@
 import {
+  AMENITIES,
   APARTMENT_TAGS,
   APARTMENT_TYPE,
   DURATION_OF_RENT,
 } from '@prisma/client';
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsEnum,
   IsNotEmptyObject,
@@ -56,82 +58,6 @@ class ApartmentBookingOptions {
   selfCheckIn: boolean;
 }
 
-class Amenities {
-  @IsOptional()
-  @IsBoolean()
-  bathtub: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  fireSmokeDetector: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  cctvCamera: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  sittingBar: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  acUnit: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  doorBell: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  laundry: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  waterHeater: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  outdoorGrill: boolean;
-
-  @IsOptional()
-  @IsString({ each: true })
-  others: string[];
-}
-
-class HouseRule {
-  @IsOptional()
-  @IsBoolean()
-  smoking: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  illegalActivities: boolean;
-
-  @IsOptional()
-  @IsString()
-  gateClose: string;
-
-  @IsOptional()
-  @IsString()
-  inflammables: string;
-
-  @IsOptional()
-  @IsString()
-  landlordPermission: string;
-
-  @IsOptional()
-  @IsString()
-  keyLost: string;
-
-  @IsOptional()
-  @IsNumber()
-  loudMusic: number;
-
-  @IsOptional()
-  @IsBoolean()
-  nightParties: boolean;
-}
-
 export class UpdateApartmentDto {
   @IsOptional()
   @IsString()
@@ -178,13 +104,15 @@ export class UpdateApartmentDto {
   @Type(() => ApartmentBookingOptions)
   bookingOptions: ApartmentBookingOptions;
 
-  @IsNotEmptyObject()
-  @ValidateNested()
-  @Type(() => Amenities)
-  amenities: Amenities;
+  @IsArray()
+  @IsEnum(AMENITIES, { each: true })
+  amenities: AMENITIES[];
 
-  @IsNotEmptyObject()
-  @ValidateNested()
-  @Type(() => HouseRule)
-  houseRule: HouseRule;
+  @IsArray()
+  @IsString({ each: true })
+  houseRule: string[];
+
+  @IsArray()
+  @IsString({ each: true })
+  otherAmenities: string[];
 }

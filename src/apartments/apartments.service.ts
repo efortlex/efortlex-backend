@@ -3,14 +3,14 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
+import slugify from '../common/slugify';
+import { DatabaseService } from '../database/database.service';
 import {
   ApartmentPricing,
   CreateApartmentDto,
   UpdateApartmentDto,
 } from './dto';
-import slugify from '../common/slugify';
-import { Prisma } from '@prisma/client';
-import { DatabaseService } from '../database/database.service';
 
 type FindAllArgs = {
   offset: number;
@@ -65,7 +65,7 @@ export class ApartmentsService {
           description: args.description,
           numberOfBedroom: args.numberOfBedroom,
           durationOfRent: args.durationOfRent,
-          amenities: { create: args.amenities },
+          amenities: args.amenities,
           pricing: {
             create: {
               ...args.pricing,
@@ -74,14 +74,12 @@ export class ApartmentsService {
           },
           location: { create: args.location },
           bookingOptions: { create: args.bookingOptions },
-          houseRule: { create: args.houseRule },
+          houseRule: args.houseRule,
           tags: args.tags,
         },
         include: {
-          amenities: true,
           bookingOptions: true,
           pricing: true,
-          houseRule: true,
           location: true,
         },
       });
@@ -96,7 +94,7 @@ export class ApartmentsService {
       for (let i = 0; i < args.length; i++) {
         await this.create(userId, args[i]);
       }
-      return { message: 'New apartments created' };
+      return { message: 'Apartments created' };
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
     }
@@ -108,12 +106,15 @@ export class ApartmentsService {
     const where = this.formatFilter(rest);
 
     const apartments = await this.databaseService.apartments.findMany({
-      where: where.OR.length > 0 ? where : {},
+      where:
+        where.OR.length > 0
+          ? where
+          : {
+              archived: false,
+            },
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
       skip: offset,
@@ -121,7 +122,7 @@ export class ApartmentsService {
     });
 
     const totalItems = await this.databaseService.apartments.count({
-      where: where.OR.length > 0 ? where : {},
+      where: where.OR.length > 0 ? where : { archived: false },
     });
 
     const data = {
@@ -147,6 +148,7 @@ export class ApartmentsService {
       durationOfRent,
       rating,
       tags,
+      otherAmenities,
     } = providedApartment;
 
     const where = {
@@ -168,31 +170,15 @@ export class ApartmentsService {
         },
         // OR condition for similar amenities
         {
-          OR: [
-            { amenities: { acUnit: amenities.acUnit } },
-            { amenities: { bathtub: amenities.bathtub } },
-            { amenities: { doorBell: amenities.doorBell } },
-            { amenities: { cctvCamera: amenities.cctvCamera } },
-            { amenities: { fireSmokeDetector: amenities.fireSmokeDetector } },
-            { amenities: { laundry: amenities.laundry } },
-            { amenities: { outdoorGrill: amenities.outdoorGrill } },
-            { amenities: { sittingBar: amenities.sittingBar } },
-            { amenities: { waterHeater: amenities.waterHeater } },
-            { amenities: { others: { hasSome: amenities.others } } },
-          ],
+          amenities: { hasSome: amenities },
+        },
+        // OR condition for similar otherAmenities
+        {
+          otherAmenities: { hasSome: otherAmenities },
         },
         // OR condition for similar house rules
         {
-          OR: [
-            { houseRule: { smoking: houseRule.smoking } },
-            { houseRule: { illegalActivities: houseRule.illegalActivities } },
-            { houseRule: { gateClose: houseRule.gateClose } },
-            { houseRule: { inflammables: houseRule.inflammables } },
-            { houseRule: { keyLost: houseRule.keyLost } },
-            { houseRule: { landlordPermission: houseRule.landlordPermission } },
-            { houseRule: { loudMusic: houseRule.loudMusic } },
-            { houseRule: { nightParties: houseRule.nightParties } },
-          ],
+          houseRule: { hasSome: houseRule },
         },
         // Similar apartment type
         {
@@ -214,16 +200,15 @@ export class ApartmentsService {
       // Exclude the provided apartment from the results
       NOT: {
         id: apartmentId,
+        archived: true,
       },
     };
 
     const similarApartments = await this.databaseService.apartments.findMany({
       where,
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
       skip: offset,
@@ -245,14 +230,15 @@ export class ApartmentsService {
         { description: { contains: search, mode: 'insensitive' } },
         ...format.OR,
       ],
+      NOT: {
+        archived: true,
+      },
     };
     const apartments = await this.databaseService.apartments.findMany({
       where,
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
       skip: offset,
@@ -270,10 +256,8 @@ export class ApartmentsService {
         id: apartmentId,
       },
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
     });
@@ -287,10 +271,8 @@ export class ApartmentsService {
         slug,
       },
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
     });
@@ -303,10 +285,8 @@ export class ApartmentsService {
     const apartments = await this.databaseService.apartments.findMany({
       where,
       include: {
-        amenities: true,
         bookingOptions: true,
         pricing: true,
-        houseRule: true,
         location: true,
       },
       skip: offset,
@@ -328,8 +308,6 @@ export class ApartmentsService {
         location: { update: args.location },
         pricing: { update: args.pricing },
         bookingOptions: { update: args.bookingOptions },
-        amenities: { update: args.amenities },
-        houseRule: { update: args.houseRule },
       },
     });
     return { message: 'Apartment updated successfully' };

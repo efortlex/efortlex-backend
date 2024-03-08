@@ -230,3 +230,11 @@ export class ApartmentDto {
   })
   updatedAt: Date;
 }
+
+export class ApartmentsDto {
+  @ApiProperty({ example: 10 })
+  totalItems: number;
+
+  @ApiProperty({ type: [ApartmentDto] })
+  results: ApartmentDto[];
+}

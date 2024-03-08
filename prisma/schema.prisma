@@ -111,21 +111,23 @@ model Apartments {
   name                String
   images              String[]                 @default([])
   slug                String                   @unique
-  durationOfRent      DURATION_OF_RENT[]
+  durationOfRent      DURATION_OF_RENT[]       @default([])
   apartmentType       APARTMENT_TYPE
   rating              Float                    @default(0.0)
   verified            Boolean                  @default(false)
   numberOfBedroom     Int
   numberOfBathroom    Int
   description         String
-  tags                APARTMENT_TAGS[]
+  archived            Boolean?                 @default(false)
+  tags                APARTMENT_TAGS[]         @default([])
   createdAt           DateTime                 @default(now())
   updatedAt           DateTime                 @updatedAt
   pricing             ApartmentPricing?
   location            Location?
   bookingOptions      ApartmentBookingOptions?
-  amenities           Amenities?
-  houseRule           HouseRule?
+  amenities           AMENITIES[]              @default([])
+  otherAmenities      String[]
+  houseRule           String[]
   User                User?                    @relation(fields: [userId], references: [id])
   userId              String?
   apartmentBookings   ApartmentBookings[]
@@ -166,40 +168,6 @@ model ApartmentBookingOptions {
   apartment   Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
 
   @@map("apartment_booking_options")
-}
-
-model Amenities {
-  id                String     @id @default(uuid())
-  apartmentId       String     @unique
-  bathtub           Boolean    @default(false)
-  fireSmokeDetector Boolean    @default(false)
-  cctvCamera        Boolean    @default(false)
-  sittingBar        Boolean    @default(false)
-  acUnit            Boolean    @default(false)
-  doorBell          Boolean    @default(false)
-  laundry           Boolean    @default(false)
-  waterHeater       Boolean    @default(false)
-  outdoorGrill      Boolean    @default(false)
-  others            String[]   @default([])
-  apartment         Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
-
-  @@map("amenities")
-}
-
-model HouseRule {
-  id                 String     @id @default(uuid())
-  apartmentId        String     @unique
-  smoking            Boolean    @default(false)
-  illegalActivities  Boolean    @default(false)
-  gateClose          String
-  inflammables       String
-  landlordPermission String
-  keyLost            String
-  loudMusic          Int
-  nightParties       Boolean    @default(false)
-  apartment          Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
-
-  @@map("house_rules")
 }
 
 model ApartmentBookings {
@@ -329,4 +297,16 @@ enum NOTIFICATION_ENUM {
 enum TWO_FACTOR_AUTHENTICATION {
   SMS
   EMAIL
+}
+
+enum AMENITIES {
+  bathtub
+  fireSmokeDetector
+  cctvCamera
+  sittingBar
+  acUnit
+  doorBell
+  laundry
+  waterHeater
+  outdoorGrill
 }
