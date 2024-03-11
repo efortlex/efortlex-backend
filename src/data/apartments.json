@@ -1,0 +1,748 @@
+[
+  {
+    "id": "abeca82f-114b-59db-975f-0ee8ed683fa4",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 15000,
+      "service_charge": 3000,
+      "caution_fee": 5000,
+      "agreement_fee": 2000,
+      "total": 25000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["bathtub", "fireSmokeDetector"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "9b50140c-2136-58ad-a262-a797458d4bb4",
+    "name": "Conkain Estate, P.H",
+    "images": [
+      "/images/8ea6e3a59f0606f6b279c7a906b2a206.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Conkain Estate, Rumuogba, Port Harcourt",
+      "approximate": "Conkain Estate, Rumuogba, Port Harcourt"
+    },
+    "price": {
+      "rent": 15000,
+      "service_charge": 3000,
+      "caution_fee": 5000,
+      "agreement_fee": 2000,
+      "total": 25000
+    },
+    "rating": 4.7,
+    "verified": true,
+    "type_of_apartment": "Self contained",
+    "number_of_bedroom": 1,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["cctvCamera"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["estate"]
+  },
+  {
+    "id": "21747609-cb21-5e6b-ae94-1cab1c991dee",
+    "name": "New Haven",
+    "images": [
+      "/images/2237a5e51fd1823efb8744eeb4ab2b0c.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Azikwe Close, off Madueke Road, New Haven, Enugu",
+      "approximate": "Azikwe Close, off Madueke Road, New Haven, Enugu"
+    },
+    "price": {
+      "rent": 600000,
+      "service_charge": 20000,
+      "caution_fee": 40000,
+      "agreement_fee": 10000,
+      "total": 670000
+    },
+    "rating": 4.0,
+    "verified": true,
+    "type_of_apartment": "Self contained",
+    "number_of_bedroom": 2,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Annually",
+    "amenities": ["sittingBar"],
+    "booking_options": {
+      "installment": true,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "duplex"]
+  },
+  {
+    "id": "9a5a562b-5f83-5d53-ae05-1b417b39d0c3",
+    "name": "Caven, Port Harcourt",
+    "images": [
+      "/images/1154c1b07afdfd3a792f54600ed95d52.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 2000000,
+      "service_charge": 200000,
+      "caution_fee": 250000,
+      "agreement_fee": 50000,
+      "total": 2500000
+    },
+    "rating": 4.5,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 4,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Annually",
+    "amenities": [
+      "acUnit",
+      "doorBell",
+      "laundry",
+      "waterHeater",
+      "outdoorGrill"
+    ],
+    "booking_options": {
+      "installment": true,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "a85b9056-d2d1-508b-8798-e6f21e3b3705",
+    "name": "Conkain Estate, P.H",
+    "images": [
+      "/images/4fd2b8bc2d467bf9b20e20b15b38662a.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["bathtub"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "flats"]
+  },
+  {
+    "id": "1eb8168c-c018-53d8-8ff1-97ae3cefb6df",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/b99ccb27e2a063b83ee203a0813a52aa.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["fireSmokeDetector"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["estate"]
+  },
+  {
+    "id": "e528cbe3-33c0-5b24-8d6b-892043f1812b",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/b14eb99ad71df50802c3d6871f00e564.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["cctvCamera"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["estate", "flats"]
+  },
+  {
+    "id": "01e35a90-3a66-565d-8c40-b02555ec69f1",
+    "name": "Caven, Port Harcourt",
+    "images": [
+      "/images/2fe74ad0b25723dc0f1c47d3826adb69.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["sittingBar"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "c164651e-36c9-5a0c-a289-60de84a68a3e",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/f78b67d0f893ce3dd426c75d4af94aa2.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 0,
+    "duration_of_rent": "Monthly",
+    "amenities": ["acUnit"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["duplex"]
+  },
+  {
+    "id": "0e416f9a-008a-5705-b905-40e19dddab77",
+    "name": "New Haven",
+    "images": [
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["doorBell"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "duplex"]
+  },
+  {
+    "id": "7527d968-5c4b-54dc-9700-0d11056f865e",
+    "name": "Caven, Port Harcourt",
+    "images": [
+      "/images/4934a0b8d59f9e00293f477b517f6c5b.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["laundry"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["flats"]
+  },
+  {
+    "id": "43ddda4a-657a-5069-a6ff-f8c4626ec709",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/dd8f4fd450066ec58bd8efaa5b038794.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["waterHeater"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["estate"]
+  },
+  {
+    "id": "c1758a1a-0ce2-50b5-ba53-8ffc86df5b1b",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/6598a5723808a643787c6c89d3999b32.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": false,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["outdoorGrill"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["estate"]
+  },
+  {
+    "id": "aab37f27-2414-5b75-b74c-97053a5180a2",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/b4a2b9bb23390bf27e17429100ff72af.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["bathtub"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": []
+  },
+  {
+    "id": "ec3a80b2-1035-54ef-b5e5-de590c3b938c",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/90e3125ff505df940217ee2b6bf15a1d.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["fireSmokeDetector"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "d33f31e3-aae7-5cdc-bd90-cf787b22ee46",
+    "name": "New Haven",
+    "images": [
+      "/images/d15928020ad767b8e826d5bf4363c791.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["cctvCamera"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "84312328-f274-5bca-9e11-6e62420c1b1d",
+    "name": "Petersbrough Hostel",
+    "images": [
+      "/images/5e5716a394661f0a567dabfe429f3ccf.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["sittingBar"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["rooms", "hostels"]
+  },
+  {
+    "id": "2481fb32-7759-59f3-896d-a6f381272a9d",
+    "name": "Twin Tower Lodge",
+    "images": [
+      "/images/27b63b9e0cec2fae2a17c48f7381b2ad.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["acUnit"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["duplex", "hostels"]
+  },
+  {
+    "id": "be4aa05c-46a7-56b6-b551-e97d59ad9ff0",
+    "name": "Conkain Estate, P.H",
+    "images": [
+      "/images/f11c2581d5a35e764281c5f28ae2a46a.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["doorBell"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": ["flats", "duplex"]
+  },
+  {
+    "id": "01288a8b-beff-50bb-8ed2-c3e330bd2ffb",
+    "name": "Gulf Estate, Port Harcourt",
+    "images": [
+      "/images/14ac3ffc0f6be82dfe3f2bd60d369791.jpeg",
+      "/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "favorite": [],
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "price": {
+      "rent": 45000,
+      "service_charge": 10000,
+      "caution_fee": 20000,
+      "agreement_fee": 5000,
+      "total": 80000
+    },
+    "rating": 4.3,
+    "verified": true,
+    "type_of_apartment": "2 bedroom or more",
+    "number_of_bedroom": 3,
+    "number_of_bathroom": 1,
+    "duration_of_rent": "Monthly",
+    "amenities": ["laundry"],
+    "booking_options": {
+      "installment": false,
+      "self_check_in": false
+    },
+    "tags": []
+  }
+]

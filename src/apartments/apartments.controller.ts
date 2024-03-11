@@ -13,8 +13,10 @@ import {
 } from '@nestjs/common';
 import { ApiBody, ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { SkipThrottle } from '@nestjs/throttler';
+import { CurrentUser } from '../auth/current-user.decorator';
 import { AuthGuard } from '../auth/guard';
 import { OkResponseData } from '../common/ok-response-data';
+import { User } from '../users/users.type';
 import { OptionalParseIntPipe } from '../utils';
 import { ApartmentsService } from './apartments.service';
 import {
@@ -87,6 +89,43 @@ export class ApartmentsController {
     @Query('installment') installment: string,
   ) {
     return this.apartmentsService.findAll({
+      offset,
+      limit,
+      amenities,
+      bathroom,
+      bedroom,
+      duration_of_rent,
+      locations,
+      price,
+      type_of_apartment,
+      installment,
+    });
+  }
+
+  @ApiOkResponse({ type: ApartmentsDto })
+  @ApiHeader({
+    name: 'x-access-token',
+    required: true,
+    example: 'Bearer .....',
+  })
+  @ApiOkResponse({ type: ApartmentsDto })
+  @Get('properties')
+  @UseGuards(AuthGuard, RoleGuard)
+  findAllProperties(
+    @CurrentUser() user: User,
+    @Query('offset', OptionalParseIntPipe) offset: number = 0,
+    @Query('limit', OptionalParseIntPipe) limit: number = 10,
+    @Query('amenities') amenities: string,
+    @Query('amenities') type_of_apartment: string,
+    @Query('duration_of_rent') duration_of_rent: string,
+    @Query('locations') locations: string,
+    @Query('price') price: string,
+    @Query('bathroom') bathroom: string,
+    @Query('bedroom') bedroom: string,
+    @Query('installment') installment: string,
+  ) {
+    return this.apartmentsService.findAllProperties({
+      userId: user.id,
       offset,
       limit,
       amenities,

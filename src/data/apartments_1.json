@@ -1,0 +1,728 @@
+[
+  {
+    "name": "Magnus Forest",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "during criteria plague burly loudly incidentally materialise digitalize even if excepting quote magnet amid closet whether scattering how smart of operate hmph vice geez mitre splay as pliers darling near sloth aboard curtsy dragon in sure-footed quizzically panhandle second fatally",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 15000,
+      "serviceCharge": 1500,
+      "cautionFee": 3000,
+      "agreementFee": 750
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["bathtub", "fireSmokeDetector"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Nelson Road",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8ea6e3a59f0606f6b279c7a906b2a206.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "SELF_CONTAINED",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 1,
+    "numberOfBathroom": 0,
+    "tags": ["ESTATE"],
+    "description": "round garnish ick bumble briefly repair wildly forenenst barren before whenever dimly jealously though yet dog cephalopod furthermore frail chuck frenetically longboat screw-up potentially where hmph painfully procurement greatly descale huzzah partially astride upbeat whether captain hollow by via anxiously gratefully puppy loudly tame respond via filter mid rib geez towards um an configure where after till although finally engorge ugh now kissingly",
+    "location": {
+      "precised": "Conkain Estate, Rumuogba, Port Harcourt",
+      "approximate": "Conkain Estate, Rumuogba, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 15000,
+      "serviceCharge": 1500,
+      "cautionFee": 3000,
+      "agreementFee": 750
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["cctvCamera"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Wolf Underpass",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/2237a5e51fd1823efb8744eeb4ab2b0c.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "SELF_CONTAINED",
+    "durationOfRent": ["ANNUALLY"],
+    "numberOfBedroom": 2,
+    "numberOfBathroom": 0,
+    "tags": ["ROOMS", "DUPLEX"],
+    "description": "trustworthy oxidise at precedent accessorise bustling wet vegetarian cuddly astride vivaciously computerise upon milepost vernacular lest impressive sparrow bravely woefully jet opposite linguistics helplessly so back commercialise intent prize surmount following yummy doze shakily solidly boohoo quaintly reference ha seriously hmph how furthermore dramatic ew modern content brand ack less youthful circa barring gadzooks a wherever er greedily incandescence lovingly",
+    "location": {
+      "precised": "Azikwe Close, off Madueke Road, New Haven, Enugu",
+      "approximate": "Azikwe Close, off Madueke Road, New Haven, Enugu"
+    },
+    "pricing": {
+      "duration": "ANNUALLY",
+      "rent": 600000,
+      "serviceCharge": 60000,
+      "cautionFee": 120000,
+      "agreementFee": 30000
+    },
+    "bookingOptions": {
+      "installment": true,
+      "selfCheckIn": false
+    },
+    "amenities": ["sittingBar"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Franklin Street",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1154c1b07afdfd3a792f54600ed95d52.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["ANNUALLY"],
+    "numberOfBedroom": 4,
+    "numberOfBathroom": 0,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "even despite poised yahoo happy ah hence that except gadzooks quicker ambitious peppery since ouch thoughtfully mattock dart known ew for programme yowza apud aha eventually partial inasmuch cluck joy rigidly rock blah after deafening aha circadian consequently unless apud alter but yahoo except towards lightly researcher but",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "ANNUALLY",
+      "rent": 2000000,
+      "serviceCharge": 200000,
+      "cautionFee": 400000,
+      "agreementFee": 100000
+    },
+    "bookingOptions": {
+      "installment": true,
+      "selfCheckIn": false
+    },
+    "amenities": [
+      "acUnit",
+      "doorBell",
+      "laundry",
+      "waterHeater",
+      "outdoorGrill"
+    ],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Carroll Walk",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4fd2b8bc2d467bf9b20e20b15b38662a.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 0,
+    "tags": ["ROOMS", "FLATS"],
+    "description": "over flour phooey against fool intrepid guy across gurn less before underneath needily shear ah majestically circle finally jealous powerfully atop larva or powerfully indeed ick cashew scar athwart clockwork married vast ignorant leprosy majestically pish furthermore into deal noisily that drat grim incidentally pish furthermore scientific shrug treat stimulating whoa shade variation anti interest mmm buckle for yippee overuse aha unless zowie outside furthermore underneath after theism",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["bathtub"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Riverside Drive",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/b99ccb27e2a063b83ee203a0813a52aa.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 0,
+    "tags": ["ESTATE"],
+    "description": "via drafty purse unfortunately transform phew incidentally how times inconsequential acetate uh-huh drat venue rescind jealously wrongly ack tender huzzah unethically wherever ha biodegrade because livestock vastly beside example while seriously woot seldom however and seclude tan angry regarding since valet glass mixed judicious calmly chart oh bah huzzah bah gregarious ew",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["fireSmokeDetector"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Franecki Knoll",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/b14eb99ad71df50802c3d6871f00e564.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 0,
+    "tags": ["ESTATE", "FLATS"],
+    "description": "up skirmish mmm willing beyond yahoo strict besides hence boohoo gen petition expert onto enchanted amid helplessly pesky remarkable via hail different which noisily toward honour excepting that vice whoever demotivate loftily parched times shameful tapioca ugh coarse stark prudent reindeer bleat unleash excepting solidly made-up aw ha atop excepting hungrily nonstop phew elegantly crush if angry geez tenderly",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["cctvCamera"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "W 1st Street",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/2fe74ad0b25723dc0f1c47d3826adb69.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 0,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "athwart complicated plus duh on decant nervously downright screw-up yowza ew slump respray bashfully reinterpret parry yieldingly thoughtfully tablet because purge memorable raffle above frankly stale round lob phew potable rude vanity softly above dangerous dash meanwhile until joshingly off prosperity gah hollow behind circa reapply indeed concerning off stir-fry format properly wealthy er provided between considering secret fairly floodlight transfer pier questionably shabby fancy pish estrogen slick cruelly phew however honored",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["sittingBar"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "N Division Street",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f78b67d0f893ce3dd426c75d4af94aa2.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 0,
+    "tags": ["DUPLEX"],
+    "description": "supersize bunch servant because within from whispered mandolin psst bouncy lower thump amongst ultimately similar hm yet um about quieten pfft gyrate causal warped via now for the so kissingly kiddingly seemingly redirect growling because leg upbeat equally raw worth fork ugh blah defensive amongst bumpy what sightsee rotten brandish among whether shofar modification slowly boo neighbor bah underneath alongside long fervently kettledrum outside whenever comb emulsify before that pish randomisation honest courageous accomplishment cwtch hake versus",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["acUnit"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Abe Junctions",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ROOMS", "DUPLEX"],
+    "description": "carnation worst frozen well-to-do for whoa overpay boo blissfully yum accomplished yesterday whether around and from besides stopper arch exult toward titter past whose joyful brightly excellent who without however nearly despite irresponsible accredit supposing fiercely boo in-laws unlike trembling atop smug geez worn memorial painfully wherever pfft er demolish and walker furthermore outside jovially enthusiastically partially oof past phooey lovingly provided",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["doorBell"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Buckridge Grove",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4934a0b8d59f9e00293f477b517f6c5b.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["FLATS"],
+    "description": "whose divest incidentally pfft hastily supposing meanwhile midst playful instantly violently lest photography wherever bangle or cobble authorized mower oh miserable quintessential bleakly hm forenenst duh attentive alongside raw behold jubilantly than yippee mom apropos legal exciting villainous except omelet bank eek versus the gah opportunity pint mindless slight fish not gadzooks after vice rotten laugh since indeed solemnly driving playfully unto recount gosh truly evenly",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["laundry"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "King Rapid",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/dd8f4fd450066ec58bd8efaa5b038794.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ESTATE"],
+    "description": "onto ouch yippee balloon elixir ignorant whoever thankfully anenst for inasmuch nor till consequently unto furthermore oof considering retina gee gravity alarming furiously anenst yippee barge homely failure officially if upon because on but zowie nominalize waddle ripen compromise dazzle hm concerning furthermore whenever where annually loud till lump like inasmuch hydrant for queasily knowledgeably swoon ill-informed greedily famously know remarkable originate diffract blah notwithstanding shackle optimistically scramble sky partially knight likewise brr since run surprisingly where huzzah",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["waterHeater"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Rosalia Inlet",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/6598a5723808a643787c6c89d3999b32.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ESTATE"],
+    "description": "persevere merry practical excepting yippee following lest zowie why although until blush a frivolous reverse intently hmph underneath psst painfully since wasteful where though lazily drat quicker pfft boo fiercely historian zowie mmm but restfully whose teller throughout queasily throughout because phew remind",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["outdoorGrill"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Kaylie Junctions",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/b4a2b9bb23390bf27e17429100ff72af.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": [],
+    "description": "that why vaguely until sympathetic clutch even less purr uncomfortable postmark countryside bah as lung welfare anaesthetize unless regarding above whereas so subside restfully minus throughout warp triumphantly lone granular canal questioningly evenly plait shush quibble and warlock offbeat beside whose onto frantically contact notwithstanding awkwardly during mean whoa an but violently backyard likely cleverly lest easily petty whereas athwart urban bull-fighter coaxingly closely undercut around petition",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["bathtub"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Hassie Loaf",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/90e3125ff505df940217ee2b6bf15a1d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "recharge crossly whoa huzzah apropos hmph oof joke overcooked earth knowledgeably hold army geez onto absent without friendship pregnancy furthermore oof squeaky memorialize wrought questionnaire poorly spellcheck daily hmph abaft wager successfully drone hungrily incidentally look curiously nicely hence loosen",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["fireSmokeDetector"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Kings Highway",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d15928020ad767b8e826d5bf4363c791.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "brief glacier gosh freight spicy barren regarding unfit however hugger uncover yuck the pro priority against ick excluding forenenst whoever amusing defiant wherever instead youthfully how fundraising old bruised ouch whoa lively dimpled frivolous or overtrain phooey boohoo harmful swordfish likely within hence elegant daunt astride until around exchange among despite blindly bah financing shocking plus mmm helpfully yesterday incense okay thorny gullible certainly",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["cctvCamera"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Kory Avenue",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/5e5716a394661f0a567dabfe429f3ccf.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["ROOMS", "HOSTELS"],
+    "description": "carelessly woot quaintly cement anti scarcely instead knavishly mmm yet out after kissingly deconsecrate heaven tissue calmly sweep until duh trouble whose whenever most tremendously instead whenever wherever cascade intentionality unlike haunting free powerfully cenotaph jealously toward authorized diploma excluding lest vicious sharply aw country ugh campaign babyish among discard fight about gadzooks cover finally when physically google back stomach as phew pro characterization of funding jubilantly ha gah positive flush phooey apud moralise calculate through rarely excitedly delightfully whoa encouragement initiate believe usually outpoint photoshop clear within extract laugh for telecommute sniveling",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["sittingBar"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Angie Heights",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/27b63b9e0cec2fae2a17c48f7381b2ad.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["DUPLEX", "HOSTELS"],
+    "description": "elimination uh-huh extremely round mmm gadzooks untidy fake dangerous reorganize garage psst whether hence and acrylic athwart harm mockingly excluding long defeat ethical menu even average combination round per applewood titanium legume relay bah eye fooey deeply black queasily twitch next apprehension solidity not charter drat right nor among upon fiercely courageous for cake euphoric outlast aha healthily modulo jovially blind ferret beneath gadzooks into woot meh huzzah concerning laundry these pasteurise conformation tenderly malice whereas along netball shampoo unsteady",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["acUnit"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "Anika Forges",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f11c2581d5a35e764281c5f28ae2a46a.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": ["FLATS", "DUPLEX"],
+    "description": "yesterday tiger wrongly seriously whoever judge coerce joey yum like um less gleaming up doting thoroughly than avail before after boohoo gee indeed wet-bar very oh margin punch likewise heat even frankly emotional although jumbo eek notwithstanding legacy quietly less whoa satisfied spec than drizzle yearly shabby opposite minus hourly announce anti weaponize smelting ack about indeed who energetically gadzooks album curly raw margin gee meanwhile for aha stranger omega at since yet geez vainly but bunkhouse towel gullible brr sometimes slash quiet although unwritten low oof stud lane acre quiet duh total hourly",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["doorBell"],
+    "houseRule": [],
+    "otherAmenities": []
+  },
+  {
+    "name": "E 14th Street",
+    "images": [
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/14ac3ffc0f6be82dfe3f2bd60d369791.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/909577b3f47e382fa198a6703c872cd8.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/8410d84c5c6ca661f9478ade9ab4d18e.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/1670a9a51724b58b985cd27f3bcdf783.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/f383f0e72664a5daf4b62ca76eecc73d.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/4a5776df174d6d838d0be91841679cff.jpeg",
+      "https://efortlex2-0-8cyw1xup5-professional-service.vercel.app/images/d061e72c43c262d1ee50dbc161ce3e86.jpeg"
+    ],
+    "apartmentType": "TWO_BEDROOM_OR_MORE",
+    "durationOfRent": ["MONTHLY"],
+    "numberOfBedroom": 3,
+    "numberOfBathroom": 1,
+    "tags": [],
+    "description": "ah kindhearted afore mold amidst as exhibition so judgementally of now boyfriend mid afraid next unaccountably daybed sentimentalize positively mention foolishly vilify besiege even angrily pliers gosh instantly ew pummel monthly moult meh the pleasant programme courageously through gleefully knottily meh likewise hence pristine calmly across destock",
+    "location": {
+      "precised": "Transamadi industrial layout, Port Harcourt",
+      "approximate": "Transamadi industrial layout, Port Harcourt"
+    },
+    "pricing": {
+      "duration": "MONTHLY",
+      "rent": 45000,
+      "serviceCharge": 4500,
+      "cautionFee": 9000,
+      "agreementFee": 2250
+    },
+    "bookingOptions": {
+      "installment": false,
+      "selfCheckIn": false
+    },
+    "amenities": ["laundry"],
+    "houseRule": [],
+    "otherAmenities": []
+  }
+]

@@ -310,3 +310,12 @@ enum AMENITIES {
   waterHeater
   outdoorGrill
 }
+
+// country
+// state
+// city
+// postal code
+// address
+// totalUnit           Int
+//   avaliableUnits      Int
+//   policies            String[]

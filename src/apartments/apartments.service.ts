@@ -4,6 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { clean } from '../common/clean';
 import slugify from '../common/slugify';
 import { DatabaseService } from '../database/database.service';
 import {
@@ -101,6 +102,39 @@ export class ApartmentsService {
   }
 
   async findAll(args: FindAllArgs) {
+    const { offset, limit, ...rest } = args;
+
+    const where = this.formatFilter(rest);
+
+    const apartments = await this.databaseService.apartments.findMany({
+      where:
+        where.OR.length > 0
+          ? where
+          : {
+              archived: false,
+            },
+      include: {
+        bookingOptions: true,
+        pricing: true,
+        location: true,
+      },
+      skip: offset,
+      take: limit,
+    });
+
+    const totalItems = await this.databaseService.apartments.count({
+      where: where.OR.length > 0 ? where : { archived: false },
+    });
+
+    const data = {
+      totalItems,
+      results: apartments,
+    };
+
+    return data;
+  }
+
+  async findAllProperties(args: FindAllArgs & { userId: string }) {
     const { offset, limit, ...rest } = args;
 
     const where = this.formatFilter(rest);
@@ -333,7 +367,9 @@ export class ApartmentsService {
     return agreementFee + cautionFee + rent + serviceCharge;
   }
 
-  private formatFilter(args: Omit<FindAllArgs, 'limit' | 'offset'>) {
+  private formatFilter(
+    args: Omit<FindAllArgs & { userId?: string }, 'limit' | 'offset'>,
+  ) {
     const {
       locations,
       bathroom,
@@ -342,6 +378,7 @@ export class ApartmentsService {
       duration_of_rent,
       price,
       installment,
+      userId,
     } = args;
     // TODO: Need to work on amentities
     const OR: Prisma.ApartmentsWhereInput[] = [];
@@ -438,6 +475,6 @@ export class ApartmentsService {
         },
       });
     }
-    return { OR };
+    return clean({ OR, AND: userId ? { userId } : null });
   }
 }
