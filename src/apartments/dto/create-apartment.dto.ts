@@ -12,15 +12,12 @@ import {
   IsEnum,
   IsNotEmptyObject,
   IsNumber,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
 
 export class ApartmentPricing {
-  @ApiProperty({ example: 'DAILY' })
-  @IsEnum(DURATION_OF_RENT)
-  duration: DURATION_OF_RENT;
-
   @ApiProperty({ example: 200000 })
   @IsNumber()
   rent: number;
@@ -38,16 +35,6 @@ export class ApartmentPricing {
   agreementFee: number;
 }
 
-class Location {
-  @ApiProperty({ example: 'Kihn Points' })
-  @IsString()
-  approximate: string;
-
-  @ApiProperty({ example: '4288 Marjorie Mount' })
-  @IsString()
-  precised: string;
-}
-
 class ApartmentBookingOptions {
   @ApiProperty({ example: true })
   @IsBoolean()
@@ -63,30 +50,42 @@ export class CreateApartmentDto {
   @IsString()
   name: string;
 
-  @ApiProperty({ example: ['http://loremflickr.com/640/480/fashion'] })
-  @IsArray()
-  @IsString({ each: true })
-  images: string[];
-
   @ApiProperty({ example: 'ONE_BEDROOM' })
   @IsEnum(APARTMENT_TYPE)
   apartmentType: APARTMENT_TYPE;
 
-  @ApiProperty({ example: ['DAILY'] })
-  @IsEnum(DURATION_OF_RENT, { each: true })
-  durationOfRent: DURATION_OF_RENT[];
-
-  @ApiProperty({ example: 1 })
+  @ApiProperty({ example: 200000 })
   @IsNumber()
-  numberOfBedroom: number;
+  rent: number;
 
-  @ApiProperty({ example: 1 })
+  @ApiProperty({ example: 8 })
   @IsNumber()
-  numberOfBathroom: number;
+  avaliableUnits: number;
 
-  @ApiProperty({ example: ['DUPLEX'] })
-  @IsEnum(APARTMENT_TAGS, { each: true })
-  tags: APARTMENT_TAGS[];
+  @ApiProperty({ example: 12 })
+  @IsNumber()
+  totalUnit: number;
+
+  @ApiProperty({ example: 'Zimbabwe' })
+  @IsString()
+  country: string;
+
+  @ApiProperty({ example: 'Rhode Island' })
+  @IsString()
+  state: string;
+
+  @ApiProperty({ example: 'Bell Gardens' })
+  @IsString()
+  city: string;
+
+  @ApiProperty({ example: 'Kihn Points' })
+  @IsString()
+  address: string;
+
+  @ApiProperty({ example: '1001100' })
+  @IsString()
+  @IsOptional()
+  postalCode?: string;
 
   @ApiProperty({
     example:
@@ -94,29 +93,6 @@ export class CreateApartmentDto {
   })
   @IsString()
   description: string;
-
-  @ApiProperty({ type: Location })
-  @IsNotEmptyObject()
-  @ValidateNested()
-  @Type(() => Location)
-  location: Location;
-
-  @ApiProperty({ type: ApartmentPricing })
-  @IsNotEmptyObject()
-  @ValidateNested()
-  @Type(() => ApartmentPricing)
-  pricing: ApartmentPricing;
-
-  @ApiProperty({ type: ApartmentBookingOptions })
-  @IsNotEmptyObject()
-  @ValidateNested()
-  @Type(() => ApartmentBookingOptions)
-  bookingOptions: ApartmentBookingOptions;
-
-  @ApiProperty({ example: ['bathtub'] })
-  @IsArray()
-  @IsEnum(AMENITIES, { each: true })
-  amenities: AMENITIES[];
 
   @ApiProperty({ example: ['No smoking'] })
   @IsArray()
@@ -127,4 +103,41 @@ export class CreateApartmentDto {
   @IsArray()
   @IsString({ each: true })
   otherAmenities: string[];
+
+  @ApiProperty({ example: ['bathtub'] })
+  @IsArray()
+  @IsEnum(AMENITIES, { each: true })
+  amenities: AMENITIES[];
+
+  @ApiProperty({ example: 'DAILY' })
+  @IsEnum(DURATION_OF_RENT, { each: true })
+  durationOfRent: DURATION_OF_RENT;
+
+  @ApiProperty({ example: ['http://loremflickr.com/640/480/fashion'] })
+  @IsArray()
+  @IsString({ each: true })
+  policies: string[];
+
+  @ApiProperty({ example: ['http://loremflickr.com/640/480/fashion'] })
+  @IsArray()
+  @IsString({ each: true })
+  images: string[];
+
+  // @ApiProperty({ example: 1 })
+  // @IsNumber()
+  // numberOfBedroom: number;
+
+  // @ApiProperty({ example: 1 })
+  // @IsNumber()
+  // numberOfBathroom: number;
+
+  @ApiProperty({ example: ['DUPLEX'] })
+  @IsEnum(APARTMENT_TAGS, { each: true })
+  tags: APARTMENT_TAGS[];
+
+  @ApiProperty({ type: ApartmentBookingOptions })
+  @IsNotEmptyObject()
+  @ValidateNested()
+  @Type(() => ApartmentBookingOptions)
+  bookingOptions: ApartmentBookingOptions;
 }

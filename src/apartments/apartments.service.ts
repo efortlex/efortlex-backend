@@ -55,28 +55,47 @@ export class ApartmentsService {
 
   async create(userId: string, args: CreateApartmentDto) {
     try {
+      const pricing = {
+        rent: args.rent,
+        serviceCharge: args.rent * 0.1,
+        cautionFee: args.rent * 0.2,
+        agreementFee: args.rent * 0.05,
+      };
       await this.databaseService.apartments.create({
         data: {
           name: args.name,
-          userId: userId,
+          userId,
           images: args.images,
           slug: slugify(args.name),
-          numberOfBathroom: args.numberOfBathroom,
+          numberOfBathroom: 1,
+          // numberOfBathroom: args.numberOfBathroom,
           apartmentType: args.apartmentType,
           description: args.description,
-          numberOfBedroom: args.numberOfBedroom,
-          durationOfRent: args.durationOfRent,
+          numberOfBedroom: 0,
+          durationOfRent: [args.durationOfRent],
           amenities: args.amenities,
           pricing: {
             create: {
-              ...args.pricing,
-              total: this.calculateTotalPrice(args.pricing),
+              ...pricing,
+              total: this.calculateTotalPrice(pricing),
             },
           },
-          location: { create: args.location },
+          location: {
+            create: {
+              address: args.address,
+              city: args.city,
+              country: args.country,
+              state: args.state,
+              postalCode: args.postalCode,
+            },
+          },
           bookingOptions: { create: args.bookingOptions },
           houseRule: args.houseRule,
           tags: args.tags,
+          avaliableUnits: args.avaliableUnits,
+          totalUnit: args.totalUnit,
+          policies: args.policies,
+          otherAmenities: args.otherAmenities,
         },
         include: {
           bookingOptions: true,
@@ -190,8 +209,10 @@ export class ApartmentsService {
         // Similar location
         {
           OR: [
-            { location: { precised: { contains: location.precised } } },
-            { location: { approximate: { contains: location.approximate } } },
+            { location: { address: { contains: location.address } } },
+            { location: { city: { contains: location.city } } },
+            { location: { country: { contains: location.country } } },
+            { location: { state: { contains: location.state } } },
           ],
         },
         // Similar number of bedrooms
@@ -387,8 +408,10 @@ export class ApartmentsService {
       const location = locations.split(',');
       OR.push({
         OR: [
-          { location: { precised: { in: location } } },
-          { location: { approximate: { in: location } } },
+          { location: { address: { in: location } } },
+          { location: { city: { in: location } } },
+          { location: { country: { in: location } } },
+          { location: { state: { in: location } } },
         ],
       });
     }

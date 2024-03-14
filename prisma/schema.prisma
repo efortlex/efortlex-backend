@@ -111,7 +111,7 @@ model Apartments {
   name                String
   images              String[]                 @default([])
   slug                String                   @unique
-  durationOfRent      DURATION_OF_RENT[]       @default([])
+  durationOfRent      DURATION_OF_RENT[]
   apartmentType       APARTMENT_TYPE
   rating              Float                    @default(0.0)
   verified            Boolean                  @default(false)
@@ -128,6 +128,9 @@ model Apartments {
   amenities           AMENITIES[]              @default([])
   otherAmenities      String[]
   houseRule           String[]
+  totalUnit           Int
+  avaliableUnits      Int
+  policies            String[]
   User                User?                    @relation(fields: [userId], references: [id])
   userId              String?
   apartmentBookings   ApartmentBookings[]
@@ -137,25 +140,28 @@ model Apartments {
 }
 
 model ApartmentPricing {
-  id            String           @id @default(uuid())
-  apartmentId   String           @unique
-  duration      DURATION_OF_RENT
+  id            String     @id @default(uuid())
+  apartmentId   String     @unique
   rent          Float
   serviceCharge Float
   cautionFee    Float
   agreementFee  Float
   total         Float
-  apartment     Apartments       @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+  apartment     Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
 
   @@map("apartment_pricings")
 }
 
 model Location {
-  id          String     @id @default(uuid())
-  apartmentId String     @unique
-  approximate String
-  precised    String
-  apartment   Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+  id          String  @id @default(uuid())
+  apartmentId String  @unique
+  country     String
+  state       String
+  city        String
+  postalCode  String?
+  address     String
+
+  apartment Apartments @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
 
   @@map("locations")
 }
@@ -311,11 +317,6 @@ enum AMENITIES {
   outdoorGrill
 }
 
-// country
-// state
-// city
-// postal code
-// address
 // totalUnit           Int
-//   avaliableUnits      Int
-//   policies            String[]
+// avaliableUnits      Int
+// policies            String[]
