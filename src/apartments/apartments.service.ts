@@ -1,17 +1,22 @@
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import {
+  Inject,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { Cache } from 'cache-manager';
 import { clean } from '../common/clean';
 import slugify from '../common/slugify';
 import { DatabaseService } from '../database/database.service';
+import getKey from '../utils/get-key';
 import {
   ApartmentPricing,
   CreateApartmentDto,
   UpdateApartmentDto,
 } from './dto';
+import { ApartmentDto, ApartmentsDto } from './dto/apartment.dto';
 
 type FindAllArgs = {
   offset: number;
@@ -51,7 +56,10 @@ type FindApartmentsByIdsArgs = {
 
 @Injectable()
 export class ApartmentsService {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+  ) {}
 
   async create(userId: string, args: CreateApartmentDto) {
     try {
@@ -123,6 +131,12 @@ export class ApartmentsService {
   async findAll(args: FindAllArgs) {
     const { offset, limit, ...rest } = args;
 
+    const cacheKey = getKey('apartments', args);
+
+    const cache = await this.cacheManager.get(cacheKey);
+
+    if (cache) return cache;
+
     const where = this.formatFilter(rest);
 
     const apartments = await this.databaseService.apartments.findMany({
@@ -149,6 +163,8 @@ export class ApartmentsService {
       totalItems,
       results: apartments,
     };
+
+    await this.cacheManager.set(cacheKey, data, 3600);
 
     return data;
   }
@@ -156,6 +172,12 @@ export class ApartmentsService {
   async findAllProperties(args: FindAllArgs & { userId: string }) {
     const { offset, limit, ...rest } = args;
 
+    const cacheKey = getKey('properties', args);
+
+    const cache = await this.cacheManager.get(cacheKey);
+
+    if (cache) return cache;
+
     const where = this.formatFilter(rest);
 
     const apartments = await this.databaseService.apartments.findMany({
@@ -183,10 +205,22 @@ export class ApartmentsService {
       results: apartments,
     };
 
+    await this.cacheManager.set(cacheKey, data, 3600);
+
     return data;
   }
 
   async findSimilar(apartmentId: string, offset: number, limit: number) {
+    const cacheKey = getKey('apartments-similar', {
+      apartmentId,
+      offset,
+      limit,
+    });
+
+    const cache = await this.cacheManager.get(cacheKey);
+
+    if (cache) return cache;
+
     const providedApartment = await this.findOneById(apartmentId);
 
     if (!providedApartment) throw new NotFoundException('Apartment not found');
@@ -278,7 +312,14 @@ export class ApartmentsService {
   async findSearch(search: string, args: FindAllArgs) {
     const { offset, limit, ...rest } = args;
 
+    const cacheKey = getKey('apartments', { ...args, search });
+
+    const cache = await this.cacheManager.get(cacheKey);
+
+    if (cache) return cache;
+
     const format = this.formatFilter(rest);
+
     const where: Prisma.ApartmentsWhereInput = {
       OR: [
         { name: { contains: search, mode: 'insensitive' } },
@@ -302,10 +343,24 @@ export class ApartmentsService {
 
     const totalItems = await this.databaseService.apartments.count({ where });
 
-    return { search, totalItems, results: apartments };
+    const data = {
+      search,
+      totalItems,
+      results: apartments,
+    };
+
+    await this.cacheManager.set(cacheKey, data, 3600);
+
+    return data;
   }
 
   async findOneById(apartmentId: string) {
+    const cacheKey = getKey('apartment', { apartmentId });
+
+    const cache = await this.cacheManager.get<ApartmentDto>(cacheKey);
+
+    if (cache) return cache;
+
     const apartment = await this.databaseService.apartments.findUnique({
       where: {
         id: apartmentId,
@@ -317,10 +372,18 @@ export class ApartmentsService {
       },
     });
 
+    await this.cacheManager.set(cacheKey, apartment, 3600);
+
     return apartment;
   }
 
   async findOneBySlug(slug: string) {
+    const cacheKey = getKey('apartment', { slug });
+
+    const cache = await this.cacheManager.get<ApartmentDto>(cacheKey);
+
+    if (cache) return cache;
+
     const apartment = await this.databaseService.apartments.findUnique({
       where: {
         slug,
@@ -332,10 +395,18 @@ export class ApartmentsService {
       },
     });
 
+    await this.cacheManager.set(cacheKey, apartment, 3600);
+
     return apartment;
   }
 
   async findApartmentsByIds({ ids, limit, offset }: FindApartmentsByIdsArgs) {
+    const cacheKey = getKey('apartments-by-ids', { ids, limit, offset });
+
+    const cache = await this.cacheManager.get<ApartmentsDto>(cacheKey);
+
+    if (cache) return cache;
+
     const where = { id: { in: ids } };
     const apartments = await this.databaseService.apartments.findMany({
       where,

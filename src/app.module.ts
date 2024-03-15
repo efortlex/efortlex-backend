@@ -1,20 +1,21 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { AuthModule } from './auth/auth.module';
-import { ApartmentsModule } from './apartments/apartments.module';
-import { DatabaseModule } from './database/database.module';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { join } from 'path';
 import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
-import * as Joi from 'joi';
 import { CacheModule } from '@nestjs/cache-manager';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import * as Joi from 'joi';
+import { join } from 'path';
+import { ApartmentsModule } from './apartments/apartments.module';
+import { AuthModule } from './auth/auth.module';
+import { DatabaseModule } from './database/database.module';
 // import { APP_INTERCEPTOR } from '@nestjs/core';
-import { UsersModule } from './users/users.module';
-import { SecretMiddleware } from './middleware';
-import { BookingsModule } from './bookings/bookings.module';
+import { redisStore } from 'cache-manager-redis-yet';
 import { ApartmentRequestsModule } from './apartment_requests/apartment_requests.module';
+import { BookingsModule } from './bookings/bookings.module';
 import { MaintenanceRequestsModule } from './maintenance-requests/maintenance-requests.module';
+import { SecretMiddleware } from './middleware';
 import { UploadModule } from './upload/upload.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -22,10 +23,6 @@ import { UploadModule } from './upload/upload.module';
     AuthModule,
     ApartmentsModule,
     BookingsModule,
-    CacheModule.register({
-      isGlobal: true,
-      ttl: 3600000,
-    }),
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
@@ -44,7 +41,17 @@ import { UploadModule } from './upload/upload.module';
         STORAGE_BUCKET_NAME: Joi.string().required(),
         STORAGE_PROJECT_ID: Joi.string().required(),
         GOOGLE_CLOUD_CREDENTIALS: Joi.string().required(),
+        REDIS_URL: Joi.string().required(),
       }),
+    }),
+    CacheModule.registerAsync({
+      isGlobal: true,
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => {
+        const store = await redisStore({ url: configService.get('REDIS_URL') });
+        return { store };
+      },
+      inject: [ConfigService],
     }),
     MailerModule.forRootAsync({
       imports: [ConfigModule],

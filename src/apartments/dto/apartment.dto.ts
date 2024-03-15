@@ -1,4 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
+import {
+  AMENITIES,
+  APARTMENT_TAGS,
+  APARTMENT_TYPE,
+  DURATION_OF_RENT,
+} from '@prisma/client';
 
 class ApartmentPricing {
   @ApiProperty({
@@ -10,9 +16,6 @@ class ApartmentPricing {
     example: '1c3f0e2e-c16f-5f04-acba-6e0a670fcf4e',
   })
   apartmentId: string;
-
-  @ApiProperty({ example: 'DAILY' })
-  duration: DURATION_OF_RENT;
 
   @ApiProperty({ example: 30000 })
   rent: number;
@@ -41,11 +44,20 @@ class LocationType {
   })
   apartmentId: string;
 
-  @ApiProperty({ example: '3957 Toni Trace' })
-  approximate: string;
+  @ApiProperty({ example: 'Venezuela' })
+  country: string;
+
+  @ApiProperty({ example: 'Florida' })
+  state: string;
+
+  @ApiProperty({ example: 'Visalia' })
+  city: string;
 
   @ApiProperty({ example: '93283 Wilderman Point' })
-  precised: string;
+  address: string;
+
+  @ApiProperty({ example: '10001' })
+  postalCode: string;
 }
 
 class ApartmentBookingOptions {
@@ -66,101 +78,6 @@ class ApartmentBookingOptions {
   selfCheckIn: boolean;
 }
 
-class Amenities {
-  @ApiProperty({
-    example: 'c7e43dcc-b725-5067-9a7a-c1eb77ee2d36',
-  })
-  id: string;
-
-  @ApiProperty({
-    example: '68f1a558-3683-5639-919c-fbfd00d3095b',
-  })
-  apartmentId: string;
-
-  @ApiProperty({ example: false })
-  bathtub: boolean;
-
-  @ApiProperty({ example: false })
-  fireSmokeDetector: boolean;
-
-  @ApiProperty({ example: false })
-  cctvCamera: boolean;
-
-  @ApiProperty({ example: false })
-  sittingBar: boolean;
-
-  @ApiProperty({ example: false })
-  acUnit: boolean;
-
-  @ApiProperty({ example: false })
-  doorBell: boolean;
-
-  @ApiProperty({ example: false })
-  laundry: boolean;
-
-  @ApiProperty({ example: false })
-  waterHeater: boolean;
-
-  @ApiProperty({ example: false })
-  outdoorGrill: boolean;
-
-  @ApiProperty({ example: [] })
-  others: string[];
-}
-
-class HouseRule {
-  @ApiProperty({
-    example: '453a16ff-bb9d-57a6-abe7-1ca4c0db4ec7',
-  })
-  id: string;
-
-  @ApiProperty({
-    example: '625d08c1-6caf-560f-9b08-8f995f856fb4',
-  })
-  apartmentId: string;
-
-  @ApiProperty({ example: false })
-  smoking: boolean;
-
-  @ApiProperty({ example: false })
-  illegalActivities: boolean;
-
-  @ApiProperty({ example: '...' })
-  gateClose: string;
-
-  @ApiProperty({ example: '...' })
-  inflammables: string;
-
-  @ApiProperty({ example: '...' })
-  landlordPermission: string;
-
-  @ApiProperty({ example: '...' })
-  keyLost: string;
-
-  @ApiProperty({ example: 10 })
-  loudMusic: number;
-
-  @ApiProperty({ example: false })
-  nightParties: boolean;
-}
-
-type APARTMENT_TAGS = 'DUPLEX' | 'ROOMS' | 'FLATS' | 'ESTATE' | 'HOSTELS';
-type APARTMENT_TYPE =
-  | 'ONE_BEDROOM'
-  | 'SELF_CONTAINED'
-  | 'TWO_BEDROOM_OR_MORE'
-  | 'DUPLEX'
-  | 'BUNGALOW'
-  | 'MINI_FLAT'
-  | 'PENTHOUSE';
-type DURATION_OF_RENT =
-  | 'DAILY'
-  | 'WEEKLY'
-  | 'MONTHLY'
-  | 'QUATERLY'
-  | 'SIX_MONTHS'
-  | 'ANNUALLY';
-
 export class ApartmentDto {
   @ApiProperty({ example: '2bb98aa0-319c-58bf-a648-d6f53d196708' })
   id: string;
@@ -179,25 +96,10 @@ export class ApartmentDto {
   @ApiProperty({ example: 'reginald-yost' })
   slug: string;
 
-  @ApiProperty({ example: '3779 Brett Run' })
-  location: LocationType;
-
-  @ApiProperty({ type: ApartmentPricing })
-  pricing: ApartmentPricing;
-
-  @ApiProperty({ type: ApartmentBookingOptions })
-  bookingOptions: ApartmentBookingOptions;
-
-  @ApiProperty({ type: Amenities })
-  amenities: Amenities;
-
-  @ApiProperty({ type: HouseRule })
-  houseRule: HouseRule;
-
   @ApiProperty({ example: ['DAILY'] })
   durationOfRent: DURATION_OF_RENT[];
 
-  @ApiProperty({ example: 'DUPLEX' })
+  @ApiProperty({ example: 'SELF_CONTAINED' })
   apartmentType: APARTMENT_TYPE;
 
   @ApiProperty({ example: 1.2 })
@@ -217,8 +119,38 @@ export class ApartmentDto {
   })
   description: string;
 
-  @ApiProperty({ example: 'DUPLEX' })
+  @ApiProperty({ example: false })
+  archived: boolean;
+
+  @ApiProperty({ example: ['DUPLEX'] })
   tags: APARTMENT_TAGS[];
+
+  @ApiProperty({ type: ApartmentPricing })
+  pricing: ApartmentPricing;
+
+  @ApiProperty({ example: '3779 Brett Run' })
+  location: LocationType;
+
+  @ApiProperty({ type: ApartmentBookingOptions })
+  bookingOptions: ApartmentBookingOptions;
+
+  @ApiProperty({ type: ['bathtub'] })
+  amenities: AMENITIES[];
+
+  @ApiProperty({ type: ['ac'] })
+  otherAmenities: string[];
+
+  @ApiProperty({ type: [] })
+  houseRule: string[];
+
+  @ApiProperty({ example: 10 })
+  totalUnit: number;
+
+  @ApiProperty({ example: 10 })
+  avaliableUnits: number;
+
+  @ApiProperty({ example: ['http://loremflickr.com/640/480/city'] })
+  policies: string[];
 
   @ApiProperty({
     example: 'Wed Jul 19 2023 00:08:51 GMT+0100 (West Africa Standard Time)',
