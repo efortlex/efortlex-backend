@@ -48,7 +48,10 @@ import { UsersModule } from './users/users.module';
       isGlobal: true,
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
-        const store = await redisStore({ url: configService.get('REDIS_URL') });
+        const store = await redisStore({
+          url: configService.get('REDIS_URL'),
+          ttl: 3600000,
+        });
         return { store };
       },
       inject: [ConfigService],

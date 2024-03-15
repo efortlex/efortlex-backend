@@ -1,11 +1,21 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { CreateMaintenanceRequestDto } from './dto';
-import { DatabaseService } from '../database/database.service';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { nanoid } from '../common/nanoid';
+import { DatabaseService } from '../database/database.service';
+import getKey from '../utils/get-key';
+import { CreateMaintenanceRequestDto } from './dto';
 
 @Injectable()
 export class MaintenanceRequestsService {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+  ) {}
 
   async create(userId: string, args: CreateMaintenanceRequestDto) {
     try {
@@ -29,6 +39,12 @@ export class MaintenanceRequestsService {
 
   async findAll(userId: string, offset: number, limit: number) {
     try {
+      const cacheKey = getKey('maintenances', { userId, offset, limit });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const maintenanceRequests =
         await this.databaseService.maintenanceRequests.findMany({
           where: { userId },
@@ -39,7 +55,11 @@ export class MaintenanceRequestsService {
       const totalItems = await this.databaseService.maintenanceRequests.count({
         where: { userId },
       });
-      return { totalItems, results: maintenanceRequests };
+      const data = { totalItems, results: maintenanceRequests };
+
+      await this.cacheManager.set(cacheKey, data, 3600);
+
+      return data;
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
     }
@@ -47,10 +67,18 @@ export class MaintenanceRequestsService {
 
   async findOne(userId: string, id: string) {
     try {
+      const cacheKey = getKey('maintenance', { userId, id });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const maintenanceRequest =
         await this.databaseService.maintenanceRequests.findUnique({
           where: { id, userId },
         });
+
+      await this.cacheManager.set(cacheKey, maintenanceRequest, 3600);
 
       return maintenanceRequest;
     } catch (error: any) {

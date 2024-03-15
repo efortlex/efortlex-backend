@@ -1,5 +1,13 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { User } from './users.type';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { Cache } from 'cache-manager';
+import { clean } from '../common/clean';
+import { DatabaseService } from '../database/database.service';
+import getKey from '../utils/get-key';
 import {
   NextofkinDto,
   UpdateDocumentDto,
@@ -7,15 +15,24 @@ import {
   UpdateNotificationDto,
   UpdateUserDto,
 } from './dto';
-import { DatabaseService } from '../database/database.service';
-import { clean } from '../common/clean';
+import { User } from './users.type';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+  ) {}
 
   async getOverview(user: User) {
     const userId = user.id;
+
+    const cacheKey = getKey('overview', { userId });
+
+    const cache = await this.cacheManager.get(cacheKey);
+
+    if (cache) return cache;
+
     const bookedApartment = await this.databaseService.apartmentBookings.count({
       where: { userId, status: 'BOOKED' },
     });
@@ -32,7 +49,7 @@ export class UsersService {
       where: { userId },
     });
 
-    return {
+    const data = {
       bookedApartment,
       scheduledApartment,
       maintainanceRequest,
@@ -47,6 +64,10 @@ export class UsersService {
         ).length,
       },
     };
+
+    await this.cacheManager.set(cacheKey, data, 3600);
+
+    return data;
   }
 
   async update(user: User, args: UpdateUserDto) {

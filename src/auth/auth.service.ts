@@ -1,10 +1,21 @@
+import { MailerService } from '@nestjs-modules/mailer';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import {
   BadRequestException,
   ConflictException,
+  Inject,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
+import { VERIFICATION_CODE_TYPE, type User as UserType } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
+import { Cache } from 'cache-manager';
+import { clean } from '../common/clean';
+import { customAlphabet } from '../common/nanoid';
+import { DatabaseService } from '../database/database.service';
 import {
   ChangePasswordDto,
   DeleteAccountDto,
@@ -16,16 +27,8 @@ import {
   UpdatePasswordDto,
   ValidateEmailDto,
 } from './dto';
-import * as bcrypt from 'bcrypt';
-import { MessageType, SignTokenType } from './types';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
-import { MailerService } from '@nestjs-modules/mailer';
 import { ResetAuthDto } from './dto/reset-auth.dto';
-import { DatabaseService } from '../database/database.service';
-import { VERIFICATION_CODE_TYPE, type User as UserType } from '@prisma/client';
-import { customAlphabet } from '../common/nanoid';
-import { clean } from '../common/clean';
+import { MessageType, SignTokenType } from './types';
 
 @Injectable()
 export class AuthService {
@@ -34,6 +37,7 @@ export class AuthService {
     private readonly configService: ConfigService,
     private jwtService: JwtService,
     private readonly mailerService: MailerService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
   ) {}
 
   async register(args: RegisterAuthDto): Promise<MessageType> {
@@ -111,6 +115,8 @@ export class AuthService {
     // if password match create an access token and refresh token
     const tokens = await this.signTokens(user.id, email);
 
+    await this.cacheTokens(tokens);
+
     // then return the access token and refresh token
     return tokens;
   }
@@ -155,8 +161,12 @@ export class AuthService {
         'A server error has occured, please try again',
       );
 
+    const tokens = await this.signTokens(newUser.id, email);
+
+    await this.cacheTokens(tokens);
+
     // return token
-    return await this.signTokens(newUser.id, email);
+    return tokens;
   }
 
   async validateEmail(data: ValidateEmailDto) {
@@ -359,6 +369,25 @@ export class AuthService {
     });
 
     return { message: 'Account delete successfully. It is sad to loss use' };
+  }
+
+  private async cacheTokens(tokens: {
+    accessToken: string;
+    refreshToken: string;
+  }) {
+    const accessTokensCache =
+      (await this.cacheManager.get<string[]>('access-tokens')) ?? [];
+    const refreshTokensCache =
+      (await this.cacheManager.get<string[]>('refresh-tokens')) ?? [];
+
+    await this.cacheManager.set('access-tokens', [
+      ...accessTokensCache,
+      tokens.accessToken,
+    ]);
+    await this.cacheManager.set('refresh-tokens', [
+      ...refreshTokensCache,
+      tokens.refreshToken,
+    ]);
   }
 
   private async hashPassword(password: string) {

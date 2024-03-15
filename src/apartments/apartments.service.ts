@@ -164,7 +164,7 @@ export class ApartmentsService {
       results: apartments,
     };
 
-    await this.cacheManager.set(cacheKey, data, 3600);
+    await this.cacheManager.set(cacheKey, data);
 
     return data;
   }
@@ -205,7 +205,7 @@ export class ApartmentsService {
       results: apartments,
     };
 
-    await this.cacheManager.set(cacheKey, data, 3600);
+    await this.cacheManager.set(cacheKey, data);
 
     return data;
   }
@@ -349,7 +349,7 @@ export class ApartmentsService {
       results: apartments,
     };
 
-    await this.cacheManager.set(cacheKey, data, 3600);
+    await this.cacheManager.set(cacheKey, data);
 
     return data;
   }
@@ -372,7 +372,7 @@ export class ApartmentsService {
       },
     });
 
-    await this.cacheManager.set(cacheKey, apartment, 3600);
+    await this.cacheManager.set(cacheKey, apartment);
 
     return apartment;
   }
@@ -395,7 +395,7 @@ export class ApartmentsService {
       },
     });
 
-    await this.cacheManager.set(cacheKey, apartment, 3600);
+    await this.cacheManager.set(cacheKey, apartment);
 
     return apartment;
   }

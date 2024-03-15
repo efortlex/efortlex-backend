@@ -1,10 +1,20 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { DatabaseService } from '../database/database.service';
+import getKey from '../utils/get-key';
 import { CreateBookingDto } from './dto';
 
 @Injectable()
 export class BookingsService {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+  ) {}
 
   async create(userId: string, args: CreateBookingDto) {
     try {
@@ -25,6 +35,12 @@ export class BookingsService {
 
   async findAll(userId: string, offset: number, limit: number) {
     try {
+      const cacheKey = getKey('bookings', { userId, offset, limit });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const apartmentBookings =
         await this.databaseService.apartmentBookings.findMany({
           where: { userId },
@@ -42,7 +58,12 @@ export class BookingsService {
       const totalItems = await this.databaseService.apartmentBookings.count({
         where: { userId },
       });
-      return { totalItems, results: apartmentBookings };
+
+      const data = { totalItems, results: apartmentBookings };
+
+      await this.cacheManager.set(cacheKey, data, 3600);
+
+      return data;
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
     }
@@ -50,6 +71,12 @@ export class BookingsService {
 
   async findOne(userId: string, id: string) {
     try {
+      const cacheKey = getKey('booking', { id, userId });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const apartmentBookings =
         await this.databaseService.apartmentBookings.findUnique({
           where: { id, userId },

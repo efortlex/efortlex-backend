@@ -13,7 +13,7 @@ const getKey = (base: string, params?: Params) => {
       }
     }
   }
-  return `${base}?${newParams?.join('&')}`;
+  return `${base}${newParams.length > 0 ? `?${newParams?.join('&')}` : ''}`;
 };
 
 export default getKey;
