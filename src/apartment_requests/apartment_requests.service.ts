@@ -1,10 +1,20 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { CreateApartmentRequestDto } from './dto';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { DatabaseService } from '../database/database.service';
+import getKey from '../utils/get-key';
+import { CreateApartmentRequestDto } from './dto';
 
 @Injectable()
 export class ApartmentRequestsService {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
+  ) {}
 
   async create(userId: string, args: CreateApartmentRequestDto) {
     try {
@@ -26,6 +36,12 @@ export class ApartmentRequestsService {
 
   async findAll(userId: string, offset: number, limit: number) {
     try {
+      const cacheKey = getKey('apartment-requests', { userId, offset, limit });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const apartmentRequests =
         await this.databaseService.apartmentRequests.findMany({
           where: { userId },
@@ -36,7 +52,14 @@ export class ApartmentRequestsService {
       const totalItems = await this.databaseService.apartmentRequests.count({
         where: { userId },
       });
-      return { totalItems, results: apartmentRequests };
+
+      const data = {
+        totalItems,
+        results: apartmentRequests,
+      };
+
+      await this.cacheManager.set(cacheKey, data, 3600);
+      return data;
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
     }
@@ -44,11 +67,18 @@ export class ApartmentRequestsService {
 
   async findOne(userId: string, id: string) {
     try {
+      const cacheKey = getKey('apartment-request', { userId, id });
+
+      const cache = await this.cacheManager.get(cacheKey);
+
+      if (cache) return cache;
+
       const apartmentRequests =
         await this.databaseService.apartmentRequests.findUnique({
           where: { id, userId },
         });
 
+      await this.cacheManager.set(cacheKey, apartmentRequests, 3600);
       return apartmentRequests;
     } catch (error: any) {
       throw new InternalServerErrorException(error.message);
