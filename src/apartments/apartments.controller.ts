@@ -80,7 +80,7 @@ export class ApartmentsController {
     @Query('offset', OptionalParseIntPipe) offset: number = 0,
     @Query('limit', OptionalParseIntPipe) limit: number = 10,
     @Query('amenities') amenities: string,
-    @Query('amenities') type_of_apartment: string,
+    @Query('type_of_apartment') type_of_apartment: string,
     @Query('duration_of_rent') duration_of_rent: string,
     @Query('locations') locations: string,
     @Query('price') price: string,

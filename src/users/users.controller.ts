@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Put, UseGuards } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { User } from './users.type';
+import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { SkipThrottle } from '@nestjs/throttler';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { AuthGuard } from '../auth/guard';
+import { OkResponseData } from '../common/ok-response-data';
 import {
   NextofkinDto,
   UpdateDocumentDto,
@@ -9,11 +11,10 @@ import {
   UpdateNotificationDto,
   UpdateUserDto,
 } from './dto';
-import { AuthGuard } from '../auth/guard';
-import { ApiHeader, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { UserDto } from './dto/user.dto';
-import { OkResponseData } from '../common/ok-response-data';
 import { OverviewDto } from './dto/overview.dto';
+import { UserDto } from './dto/user.dto';
+import { UsersService } from './users.service';
+import { User } from './users.type';
 
 @ApiHeader({
   name: 'x-access-token',
@@ -25,6 +26,7 @@ import { OverviewDto } from './dto/overview.dto';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @SkipThrottle()
   @ApiOkResponse({ type: UserDto })
   @UseGuards(AuthGuard)
   @Get()

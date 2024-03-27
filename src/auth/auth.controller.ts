@@ -48,7 +48,7 @@ export class AuthController {
     }),
   })
   @ApiBadRequestResponse({
-    description: 'A server error has occured, please try again',
+    description: 'A server error has occurred, please try again',
   })
   @ApiConflictResponse({
     description: 'Account already exists, please login',
@@ -73,11 +73,11 @@ export class AuthController {
     type: SignTokenDto,
   })
   @ApiBadRequestResponse({
-    description: 'A server error has occured, please try again',
+    description: 'A server error has occurred, please try again',
   })
   @Post('/signin')
-  signinProviders(@Body() args: SigninAuthDto) {
-    return this.authService.signinProviders(args);
+  signInProviders(@Body() args: SigninAuthDto) {
+    return this.authService.signInProviders(args);
   }
 
   @ApiOkResponse({
@@ -173,7 +173,7 @@ export class AuthController {
     example: 'Bearer .....',
   })
   @ApiBadRequestResponse({
-    description: 'A server error has occured, please try again',
+    description: 'A server error has occurred, please try again',
   })
   @UseGuards(AuthGuard)
   @Put('/update')

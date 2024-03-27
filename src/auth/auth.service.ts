@@ -70,7 +70,7 @@ export class AuthService {
     // checking if there was an error creating user if there was throw an error
     if (!newUser)
       throw new BadRequestException(
-        'A server error has occured, please try again',
+        'A server error has occurred, please try again',
       );
 
     // get email verification code
@@ -103,7 +103,7 @@ export class AuthService {
     // searching database if user with email is already registered
     const user = await this.databaseService.user.findFirst({
       where: { email },
-      select: { password: true, id: true },
+      select: { password: true, id: true, role: true, emailVerified: true },
     });
 
     // if user does not exists then throw an error
@@ -113,7 +113,12 @@ export class AuthService {
     await this.comparePassword(password, user.password);
 
     // if password match create an access token and refresh token
-    const tokens = await this.signTokens(user.id, email);
+    const tokens = await this.signTokens(
+      user.id,
+      email,
+      user.role,
+      user.emailVerified,
+    );
 
     await this.cacheTokens(tokens);
 
@@ -121,7 +126,7 @@ export class AuthService {
     return tokens;
   }
 
-  async signinProviders(args: SigninAuthDto) {
+  async signInProviders(args: SigninAuthDto) {
     const { email, firstName, lastName, provider } = args;
 
     // searching database if user with email is already registered
@@ -131,7 +136,12 @@ export class AuthService {
 
     // if user exists and if the provider exists
     if (user && user.providers.includes(provider)) {
-      return await this.signTokens(user.id, email);
+      return await this.signTokens(
+        user.id,
+        email,
+        user.role,
+        user.emailVerified,
+      );
     }
 
     // if user exists and if the provider does not exists
@@ -140,7 +150,12 @@ export class AuthService {
         where: { email },
         data: { providers: { push: provider } },
       });
-      return await this.signTokens(newUser.id, email);
+      return await this.signTokens(
+        newUser.id,
+        email,
+        newUser.role,
+        newUser.emailVerified,
+      );
     }
 
     // if user doesn't exists
@@ -158,10 +173,15 @@ export class AuthService {
     // checking if there was an error creating user if there was throw an error
     if (!newUser)
       throw new BadRequestException(
-        'A server error has occured, please try again',
+        'A server error has occurred, please try again',
       );
 
-    const tokens = await this.signTokens(newUser.id, email);
+    const tokens = await this.signTokens(
+      newUser.id,
+      email,
+      newUser.role,
+      newUser.emailVerified,
+    );
 
     await this.cacheTokens(tokens);
 
@@ -336,7 +356,7 @@ export class AuthService {
 
     if (!data)
       throw new BadRequestException(
-        'A server error has occured, please try again',
+        'A server error has occurred, please try again',
       );
     return { message: 'Successfully updated' };
   }
@@ -346,9 +366,20 @@ export class AuthService {
       sub: user.id,
       email: user.email,
       emailVerified: user.emailVerified,
+      role: user.role,
       secret: this.configService.get('JWT_ACCESS_SECRET'),
       expiresIn: this.configService.get('ACCESS_EXPIRES_IN'),
     });
+
+    const accessTokensCache =
+      (await this.cacheManager.get<string[]>('access-tokens')) ?? [];
+
+    // storing the new access token with the previous access tokens
+    await this.cacheManager.set(
+      'access-tokens',
+      [...accessTokensCache, accessToken],
+      87000000,
+    );
 
     return { accessToken };
   }
@@ -371,23 +402,35 @@ export class AuthService {
     return { message: 'Account delete successfully. It is sad to loss use' };
   }
 
+  /**
+   * What: This will cache the access token and refresh token
+   * Why: So that every token that's is use for validation will be checked in the cache before validation
+   */
   private async cacheTokens(tokens: {
     accessToken: string;
     refreshToken: string;
   }) {
+    // getting store access token
     const accessTokensCache =
       (await this.cacheManager.get<string[]>('access-tokens')) ?? [];
+
+    // getting store refresh token
     const refreshTokensCache =
       (await this.cacheManager.get<string[]>('refresh-tokens')) ?? [];
 
-    await this.cacheManager.set('access-tokens', [
-      ...accessTokensCache,
-      tokens.accessToken,
-    ]);
-    await this.cacheManager.set('refresh-tokens', [
-      ...refreshTokensCache,
-      tokens.refreshToken,
-    ]);
+    // storing the new access token with the previous access tokens
+    await this.cacheManager.set(
+      'access-tokens',
+      [...accessTokensCache, tokens.accessToken],
+      87000000,
+    );
+
+    // storing the new refresh token with the previous access tokens
+    await this.cacheManager.set(
+      'refresh-tokens',
+      [...refreshTokensCache, tokens.refreshToken],
+      3153600000,
+    );
   }
 
   private async hashPassword(password: string) {
@@ -410,11 +453,17 @@ export class AuthService {
     return true;
   }
 
-  private async signTokens(sub: string, email: string, emailVerified = false) {
+  private async signTokens(
+    sub: string,
+    email: string,
+    role: UserType['role'],
+    emailVerified = false,
+  ) {
     const accessToken = await this.signToken({
       sub,
       email,
       emailVerified,
+      role,
       secret: this.configService.get('JWT_ACCESS_SECRET'),
       expiresIn: this.configService.get('ACCESS_EXPIRES_IN'),
     });
@@ -422,6 +471,7 @@ export class AuthService {
       sub,
       email,
       emailVerified,
+      role,
       secret: this.configService.get('JWT_REFRESH_SECRET'),
       expiresIn: this.configService.get('REFRESH_EXPIRES_IN'),
     });
@@ -482,7 +532,7 @@ export class AuthService {
 
     if (!storeVerificationCode)
       throw new InternalServerErrorException(
-        'A server error has occured, please try again',
+        'A server error has occurred, please try again',
       );
 
     return code;
