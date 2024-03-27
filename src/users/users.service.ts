@@ -77,6 +77,10 @@ export class UsersService {
         data: clean(args),
       });
 
+      const cacheKey = getKey('user', { userId: user.id });
+
+      await this.cacheManager.del(cacheKey);
+
       return { message: 'User updated successfully' };
     } catch (error) {
       throw new InternalServerErrorException(error.message);
@@ -99,6 +103,10 @@ export class UsersService {
         });
       }
 
+      const cacheKey = getKey('user', { userId: user.id });
+
+      await this.cacheManager.del(cacheKey);
+
       return { message: 'User employment updated successfully' };
     } catch (error) {
       throw new InternalServerErrorException(error.message);
@@ -120,6 +128,10 @@ export class UsersService {
           data: { userId, ...clean(args) },
         });
       }
+
+      const cacheKey = getKey('user', { userId: user.id });
+
+      await this.cacheManager.del(cacheKey);
       return { message: 'User Next of kin updated successfully' };
     } catch (error) {
       throw new InternalServerErrorException(error.message);
@@ -142,6 +154,10 @@ export class UsersService {
         });
       }
 
+      const cacheKey = getKey('user', { userId: user.id });
+
+      await this.cacheManager.del(cacheKey);
+
       return { message: 'User document updated successfully' };
     } catch (error) {
       throw new InternalServerErrorException(error.message);
@@ -163,6 +179,10 @@ export class UsersService {
           data: { userId, ...clean(args) },
         });
       }
+
+      const cacheKey = getKey('user', { userId: user.id });
+
+      await this.cacheManager.del(cacheKey);
 
       return { message: 'User notification updated successfully' };
     } catch (error) {

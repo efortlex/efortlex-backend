@@ -480,9 +480,9 @@ export class AuthService {
   }
 
   private async signToken(args: SignTokenType) {
-    const { sub, email, secret, expiresIn, emailVerified } = args;
+    const { sub, email, secret, expiresIn, emailVerified, role } = args;
     const token = await this.jwtService.signAsync(
-      { sub, email, emailVerified },
+      { sub, email, emailVerified, role },
       { secret, expiresIn },
     );
 
